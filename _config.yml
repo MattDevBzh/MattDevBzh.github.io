@@ -5,7 +5,7 @@ baseurl: ""
 url: "https://MattDevBzh.github.io"
 
 
-theme: minima
+theme: jekyll-theme-cayman
 
 markdown: kramdown
 highlighter: rouge
