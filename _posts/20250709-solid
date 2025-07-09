@@ -1,0 +1,195 @@
+---
+layout: post
+title: "Comprendre les principes SOLID en développement logiciel"
+date: 2025-07-09
+categories: [architecture, conception, bonnes-pratiques, SOLID]
+tags: [SOLID, architecture, principes, développement, objet]
+---
+
+**SOLID** est un ensemble de cinq principes fondamentaux pour la conception de code orienté objet. Leur application permet de concevoir des logiciels plus robustes, flexibles et maintenables. Voici un tour d’horizon de ces principes, illustrés par des exemples concrets.
+
+## Sommaire
+* TOC
+{:toc}
+
+---
+
+## <span style="color:red">S</span>ingle Responsibility Principle  
+**Principe de Responsabilité Unique**
+
+Une classe ne doit avoir qu’une seule raison de changer. Chaque classe doit gérer un seul périmètre fonctionnel, ce qui la rend plus robuste et moins sujette aux impacts des évolutions extérieures.
+
+**Avantages :**
+- Facilite la maintenance
+- Favorise la réutilisation
+
+**Inconvénients :**
+- Multiplication du nombre de classes
+
+**Exemple :**
+
+_Mauvaise implémentation :_
+```csharp
+class CoffeeMachine {
+    int waterLevel;
+    int coffeeBeansLevel;
+    void makeCoffee() { /* ... */ }
+    void cleanMachine() { /* ... */ }
+}
+```
+
+_Bonne implémentation :_
+```csharp
+class CoffeeMachine {
+    int waterLevel;
+    int coffeeBeansLevel;
+    void makeCoffee() { /* ... */ }
+}
+
+class MachineCleaner {
+    void cleanMachine(CoffeeMachine machine) { /* ... */ }
+}
+```
+
+---
+
+## <span style="color:red">O</span>pen/Closed Principle  
+**Principe Ouvert/Fermé**
+
+> Les entités logicielles doivent être **ouvertes à l’extension** mais **fermées à la modification**.
+
+**Avantages :**
+- Permet l’ajout de fonctionnalités sans impacter l’existant
+
+**Inconvénients :**
+- Complexification du code
+- Multiplication des classes
+
+**Exemple :**
+
+_Mauvaise implémentation :_
+```csharp
+class CoffeeMachine {
+    string type;
+    void brewCoffee() { /* logique dépendant du type */ }
+}
+```
+
+_Bonne implémentation :_
+```csharp
+interface ICoffeeBrewer {
+    void brewCoffee();
+}
+
+class DripCoffeeMaker : ICoffeeBrewer {
+    void brewCoffee() { /* goutte à goutte */ }
+}
+
+class EspressoMachine : ICoffeeBrewer {
+    void brewCoffee() { /* espresso */ }
+}
+```
+
+---
+
+## <span style="color:red">L</span>iskov Substitution Principle  
+**Principe de Substitution de Liskov**
+
+Les instances d’une classe dérivée doivent pouvoir remplacer celles de leur classe de base sans altérer la logique du programme.
+
+**Avantages :**
+- Facilite l’évolution et la maintenance
+
+**Inconvénients :**
+- Principe facilement violé
+
+**Exemple :**
+```csharp
+class CoffeeMachine {
+    int waterLevel;
+    void addWater(int amount) { if (amount > 0) waterLevel += amount; }
+    void brew() { /* ... */ }
+}
+
+class EspressoMachine : CoffeeMachine {
+    override void addWater(int amount) { base.addWater(amount); }
+    override void brew() { /* espresso */ }
+}
+
+void makeCoffee(CoffeeMachine machine, int waterAmount) {
+    machine.addWater(waterAmount);
+    machine.brew();
+}
+```
+
+---
+
+## <span style="color:red">I</span>nterface Segregation Principle  
+**Principe de Ségrégation d’Interface**
+
+Une classe ne doit pas dépendre d’interfaces qui ne lui sont pas utiles. Il vaut mieux multiplier les petites interfaces spécifiques.
+
+**Avantages :**
+- Améliore la clarté
+- Réduit le couplage
+
+**Inconvénients :**
+- Gestion de nombreuses interfaces
+
+**Exemple :**
+```csharp
+public interface ICoffeeBrewer {
+    void BrewCoffee();
+    void AddCoffeeBeans();
+    void AddWater();
+}
+
+public interface IMilkProvider {
+    void AddMilk();
+}
+
+public class DripCoffeeMaker : ICoffeeBrewer { /* ... */ }
+public class EspressoMachine : ICoffeeBrewer, IMilkProvider { /* ... */ }
+```
+
+---
+
+## <span style="color:red">D</span>ependency Inversion Principle  
+**Principe d’Inversion de Dépendance**
+
+Les modules de haut niveau ne doivent pas dépendre des modules de bas niveau, mais d’abstractions.
+
+**Avantages :**
+- Réduit la dépendance aux détails d’implémentation
+- Améliore la flexibilité
+
+**Inconvénients :**
+- Ajoute de la complexité
+
+**Exemple :**
+```csharp
+public interface ICoffeeProvider {
+    string ProvideCoffee();
+}
+
+public class CoffeeBeanContainer : ICoffeeProvider {
+    public string ProvideCoffee() { return "Ground coffee beans"; }
+}
+
+public class CoffeeMaker {
+    private readonly ICoffeeProvider coffeeProvider;
+    public CoffeeMaker(ICoffeeProvider provider) { this.coffeeProvider = provider; }
+    public void BrewCoffee() {
+        string coffeeSource = coffeeProvider.ProvideCoffee();
+        // préparation avec coffeeSource
+    }
+}
+```
+
+---
+
+## Conclusion
+
+Maîtriser les principes SOLID, c'est se donner les moyens de construire des applications évolutives, robustes et plus simples à maintenir. 🌱
+
+N’hésitez pas à partager vos retours ou exemples d’application en commentaire !
