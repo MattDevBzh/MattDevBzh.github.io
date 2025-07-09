@@ -4,7 +4,7 @@ author: "MattDevBzh"
 baseurl: ""
 url: "https://MattDevBzh.github.io"
 
-theme: Cayman
+theme: cayman
 
 markdown: kramdown
 highlighter: rouge
