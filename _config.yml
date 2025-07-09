@@ -4,10 +4,11 @@ author: "MattDevBzh"
 baseurl: ""
 url: "https://MattDevBzh.github.io"
 
-theme: cayman
+remote_theme: pages-themes/cayman@v0.2.0
 
 markdown: kramdown
 highlighter: rouge
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-remote-theme # add this line to the plugins list if you already have one
