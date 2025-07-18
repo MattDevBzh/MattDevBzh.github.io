@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Conditions et structures de contrôle en C# : Prendre les bonnes décisions dans votre café | Le dev, c’est dièse</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Conditions et structures de contrôle en C# : Prendre les bonnes décisions dans votre café" />
+<meta name="author" content="MattDevBzh" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Dans la programmation comme dans un café, il faut constamment prendre des décisions ! Quel café servir selon les préférences du client ? Que faire si la machine est en panne ? Les structures de contrôle en C# nous permettent de gérer ces situations. ☕" />
+<meta property="og:description" content="Dans la programmation comme dans un café, il faut constamment prendre des décisions ! Quel café servir selon les préférences du client ? Que faire si la machine est en panne ? Les structures de contrôle en C# nous permettent de gérer ces situations. ☕" />
+<link rel="canonical" href="http://0.0.0.0:4000/2025/01/27/conditions-structures-controle.html" />
+<meta property="og:url" content="http://0.0.0.0:4000/2025/01/27/conditions-structures-controle.html" />
+<meta property="og:site_name" content="Le dev, c’est dièse" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-01-27T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Conditions et structures de contrôle en C# : Prendre les bonnes décisions dans votre café" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MattDevBzh"},"dateModified":"2025-01-27T00:00:00+00:00","datePublished":"2025-01-27T00:00:00+00:00","description":"Dans la programmation comme dans un café, il faut constamment prendre des décisions ! Quel café servir selon les préférences du client ? Que faire si la machine est en panne ? Les structures de contrôle en C# nous permettent de gérer ces situations. ☕","headline":"Conditions et structures de contrôle en C# : Prendre les bonnes décisions dans votre café","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/2025/01/27/conditions-structures-controle.html"},"url":"http://0.0.0.0:4000/2025/01/27/conditions-structures-controle.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://0.0.0.0:4000/feed.xml" title="Le dev, c&apos;est dièse" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Le dev, c&#39;est dièse</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/">Bienvenue sur mon blog tech</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Conditions et structures de contrôle en C# : Prendre les bonnes décisions dans votre café</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2025-01-27T00:00:00+00:00" itemprop="datePublished">Jan 27, 2025
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Dans la programmation comme dans un café, il faut constamment prendre des décisions ! <strong>Quel café servir selon les préférences du client ? Que faire si la machine est en panne ?</strong> Les structures de contrôle en C# nous permettent de gérer ces situations. ☕</p>
+
+<p>Découvrons ensemble comment programmer la logique de décision avec des exemples tirés de la gestion d’un café !</p>
+
+<h2 id="sommaire">Sommaire</h2>
+<ul id="markdown-toc">
+  <li><a href="#sommaire" id="markdown-toc-sommaire">Sommaire</a></li>
+  <li><a href="#quest-ce-quune-structure-de-contrôle-" id="markdown-toc-quest-ce-quune-structure-de-contrôle-">Qu’est-ce qu’une structure de contrôle ?</a></li>
+  <li><a href="#1-la-condition-simple--if" id="markdown-toc-1-la-condition-simple--if">1. La condition simple : <code class="language-plaintext highlighter-rouge">if</code></a>    <ul>
+      <li><a href="#syntaxe-de-base" id="markdown-toc-syntaxe-de-base">Syntaxe de base</a></li>
+      <li><a href="#exemple--vérifier-la-disponibilité-du-café" id="markdown-toc-exemple--vérifier-la-disponibilité-du-café">Exemple : Vérifier la disponibilité du café</a></li>
+      <li><a href="#exemple--gestion-de-lheure-douverture" id="markdown-toc-exemple--gestion-de-lheure-douverture">Exemple : Gestion de l’heure d’ouverture</a></li>
+    </ul>
+  </li>
+  <li><a href="#2-la-condition-alternative--ifelse" id="markdown-toc-2-la-condition-alternative--ifelse">2. La condition alternative : <code class="language-plaintext highlighter-rouge">if...else</code></a>    <ul>
+      <li><a href="#syntaxe" id="markdown-toc-syntaxe">Syntaxe</a></li>
+      <li><a href="#exemple--recommandation-selon-la-taille-de-tasse" id="markdown-toc-exemple--recommandation-selon-la-taille-de-tasse">Exemple : Recommandation selon la taille de tasse</a></li>
+      <li><a href="#exemple--gestion-de-stock" id="markdown-toc-exemple--gestion-de-stock">Exemple : Gestion de stock</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-les-conditions-multiples--ifelse-ifelse" id="markdown-toc-3-les-conditions-multiples--ifelse-ifelse">3. Les conditions multiples : <code class="language-plaintext highlighter-rouge">if...else if...else</code></a>    <ul>
+      <li><a href="#syntaxe-1" id="markdown-toc-syntaxe-1">Syntaxe</a></li>
+      <li><a href="#exemple--menu-selon-lheure" id="markdown-toc-exemple--menu-selon-lheure">Exemple : Menu selon l’heure</a></li>
+      <li><a href="#exemple--classification-des-clients" id="markdown-toc-exemple--classification-des-clients">Exemple : Classification des clients</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-linstruction-switch--choisir-parmi-plusieurs-options" id="markdown-toc-4-linstruction-switch--choisir-parmi-plusieurs-options">4. L’instruction <code class="language-plaintext highlighter-rouge">switch</code> : Choisir parmi plusieurs options</a>    <ul>
+      <li><a href="#syntaxe-2" id="markdown-toc-syntaxe-2">Syntaxe</a></li>
+      <li><a href="#exemple--préparation-selon-le-type-de-café" id="markdown-toc-exemple--préparation-selon-le-type-de-café">Exemple : Préparation selon le type de café</a></li>
+      <li><a href="#exemple--calcul-du-prix-selon-la-taille" id="markdown-toc-exemple--calcul-du-prix-selon-la-taille">Exemple : Calcul du prix selon la taille</a></li>
+    </ul>
+  </li>
+  <li><a href="#5-les-opérateurs-de-comparaison" id="markdown-toc-5-les-opérateurs-de-comparaison">5. Les opérateurs de comparaison</a>    <ul>
+      <li><a href="#opérateurs-de-base" id="markdown-toc-opérateurs-de-base">Opérateurs de base</a></li>
+      <li><a href="#opérateurs-logiques" id="markdown-toc-opérateurs-logiques">Opérateurs logiques</a></li>
+      <li><a href="#exemple-pratique--validation-de-commande" id="markdown-toc-exemple-pratique--validation-de-commande">Exemple pratique : Validation de commande</a></li>
+    </ul>
+  </li>
+  <li><a href="#6-exemple-complet--système-de-commande" id="markdown-toc-6-exemple-complet--système-de-commande">6. Exemple complet : Système de commande</a></li>
+  <li><a href="#7-conseils-et-bonnes-pratiques" id="markdown-toc-7-conseils-et-bonnes-pratiques">7. Conseils et bonnes pratiques</a>    <ul>
+      <li><a href="#-utilisez-des-noms-explicites" id="markdown-toc--utilisez-des-noms-explicites">✅ Utilisez des noms explicites</a></li>
+      <li><a href="#-groupez-les-conditions-complexes" id="markdown-toc--groupez-les-conditions-complexes">✅ Groupez les conditions complexes</a></li>
+      <li><a href="#-préférez-switch-pour-de-multiples-valeurs-exactes" id="markdown-toc--préférez-switch-pour-de-multiples-valeurs-exactes">✅ Préférez <code class="language-plaintext highlighter-rouge">switch</code> pour de multiples valeurs exactes</a></li>
+    </ul>
+  </li>
+  <li><a href="#exercices-pratiques" id="markdown-toc-exercices-pratiques">Exercices pratiques</a>    <ul>
+      <li><a href="#exercice-1--menu-dynamique" id="markdown-toc-exercice-1--menu-dynamique">Exercice 1 : Menu dynamique</a></li>
+      <li><a href="#exercice-2--calculateur-de-remise" id="markdown-toc-exercice-2--calculateur-de-remise">Exercice 2 : Calculateur de remise</a></li>
+      <li><a href="#exercice-3--vérificateur-de-stock" id="markdown-toc-exercice-3--vérificateur-de-stock">Exercice 3 : Vérificateur de stock</a></li>
+    </ul>
+  </li>
+  <li><a href="#conclusion" id="markdown-toc-conclusion">Conclusion</a></li>
+</ul>
+
+<hr />
+
+<h2 id="quest-ce-quune-structure-de-contrôle-">Qu’est-ce qu’une structure de contrôle ?</h2>
+
+<p>Une <strong>structure de contrôle</strong> détermine l’ordre d’exécution des instructions dans un programme. C’est comme les règles de fonctionnement de votre café :</p>
+
+<ul>
+  <li><strong>Si</strong> le client commande un cappuccino <strong>alors</strong> préparer du lait moussé</li>
+  <li><strong>Si</strong> il n’y a plus de grains <strong>alors</strong> commander un réapprovisionnement</li>
+  <li><strong>Selon</strong> l’heure de la journée <strong>choisir</strong> le menu approprié</li>
+</ul>
+
+<hr />
+
+<h2 id="1-la-condition-simple--if">1. La condition simple : <code class="language-plaintext highlighter-rouge">if</code></h2>
+
+<p>La structure <code class="language-plaintext highlighter-rouge">if</code> permet d’exécuter du code seulement si une condition est vraie.</p>
+
+<h3 id="syntaxe-de-base">Syntaxe de base</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Code à exécuter si la condition est vraie</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exemple--vérifier-la-disponibilité-du-café">Exemple : Vérifier la disponibilité du café</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">stockCafe</span> <span class="p">=</span> <span class="m">50</span><span class="p">;</span> <span class="c1">// grammes restants</span>
+<span class="kt">int</span> <span class="n">grammesPourEspresso</span> <span class="p">=</span> <span class="m">18</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">stockCafe</span> <span class="p">&gt;=</span> <span class="n">grammesPourEspresso</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"✅ Espresso disponible !"</span><span class="p">);</span>
+    <span class="n">stockCafe</span> <span class="p">=</span> <span class="n">stockCafe</span> <span class="p">-</span> <span class="n">grammesPourEspresso</span><span class="p">;</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Stock restant : </span><span class="p">{</span><span class="n">stockCafe</span><span class="p">}</span><span class="s">g"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exemple--gestion-de-lheure-douverture">Exemple : Gestion de l’heure d’ouverture</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">heureActuelle</span> <span class="p">=</span> <span class="m">8</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">heureOuverture</span> <span class="p">=</span> <span class="m">7</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">heureFermeture</span> <span class="p">=</span> <span class="m">19</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">heureActuelle</span> <span class="p">&gt;=</span> <span class="n">heureOuverture</span> <span class="p">&amp;&amp;</span> <span class="n">heureActuelle</span> <span class="p">&lt;</span> <span class="n">heureFermeture</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"☕ Le café est ouvert ! Bienvenue !"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="2-la-condition-alternative--ifelse">2. La condition alternative : <code class="language-plaintext highlighter-rouge">if...else</code></h2>
+
+<p>Quand on a deux choix possibles, on utilise <code class="language-plaintext highlighter-rouge">if...else</code>.</p>
+
+<h3 id="syntaxe">Syntaxe</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Code si la condition est vraie</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="c1">// Code si la condition est fausse</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exemple--recommandation-selon-la-taille-de-tasse">Exemple : Recommandation selon la taille de tasse</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">string</span> <span class="n">tailleTasse</span> <span class="p">=</span> <span class="s">"Grande"</span><span class="p">;</span>
+<span class="kt">double</span> <span class="n">prixBase</span> <span class="p">=</span> <span class="m">2.50</span><span class="p">;</span>
+<span class="kt">double</span> <span class="n">prixFinal</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">tailleTasse</span> <span class="p">==</span> <span class="s">"Grande"</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">prixFinal</span> <span class="p">=</span> <span class="n">prixBase</span> <span class="p">+</span> <span class="m">0.50</span><span class="p">;</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"☕ Tasse grande sélectionnée. Prix : </span><span class="p">{</span><span class="n">prixFinal</span><span class="p">}</span><span class="s">€"</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="n">prixFinal</span> <span class="p">=</span> <span class="n">prixBase</span><span class="p">;</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"☕ Tasse normale sélectionnée. Prix : </span><span class="p">{</span><span class="n">prixFinal</span><span class="p">}</span><span class="s">€"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exemple--gestion-de-stock">Exemple : Gestion de stock</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">stockGrains</span> <span class="p">=</span> <span class="m">30</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">stockMinimum</span> <span class="p">=</span> <span class="m">50</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">stockGrains</span> <span class="p">&gt;=</span> <span class="n">stockMinimum</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"✅ Stock suffisant pour la journée"</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"⚠️ Stock faible ! Commander des grains urgentement"</span><span class="p">);</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Il manque </span><span class="p">{</span><span class="n">stockMinimum</span> <span class="p">-</span> <span class="n">stockGrains</span><span class="p">}</span><span class="s">g de café"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="3-les-conditions-multiples--ifelse-ifelse">3. Les conditions multiples : <code class="language-plaintext highlighter-rouge">if...else if...else</code></h2>
+
+<p>Pour gérer plusieurs possibilités, on enchaîne les conditions.</p>
+
+<h3 id="syntaxe-1">Syntaxe</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="n">condition1</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Code pour condition1</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">condition2</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Code pour condition2  </span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">condition3</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Code pour condition3</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="c1">// Code par défaut</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exemple--menu-selon-lheure">Exemple : Menu selon l’heure</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">heure</span> <span class="p">=</span> <span class="m">14</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">heure</span> <span class="p">&gt;=</span> <span class="m">6</span> <span class="p">&amp;&amp;</span> <span class="n">heure</span> <span class="p">&lt;</span> <span class="m">11</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"🌅 Menu petit-déjeuner"</span><span class="p">);</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"- Espresso + croissant : 4€"</span><span class="p">);</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"- Cappuccino + pain au chocolat : 5€"</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">heure</span> <span class="p">&gt;=</span> <span class="m">11</span> <span class="p">&amp;&amp;</span> <span class="n">heure</span> <span class="p">&lt;</span> <span class="m">14</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"☀️ Menu déjeuner"</span><span class="p">);</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"- Café + sandwich : 8€"</span><span class="p">);</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"- Americano + salade : 9€"</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">heure</span> <span class="p">&gt;=</span> <span class="m">14</span> <span class="p">&amp;&amp;</span> <span class="n">heure</span> <span class="p">&lt;</span> <span class="m">17</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"🍰 Menu goûter"</span><span class="p">);</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"- Latte + part de gâteau : 6€"</span><span class="p">);</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"- Thé + muffin : 5€"</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"🌙 Menu soirée"</span><span class="p">);</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"- Décaféiné + tisane : 3€"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exemple--classification-des-clients">Exemple : Classification des clients</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">nombreVisites</span> <span class="p">=</span> <span class="m">15</span><span class="p">;</span>
+<span class="kt">string</span> <span class="n">typeClient</span><span class="p">;</span>
+<span class="kt">double</span> <span class="n">remise</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">nombreVisites</span> <span class="p">&gt;=</span> <span class="m">50</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">typeClient</span> <span class="p">=</span> <span class="s">"Client VIP ⭐"</span><span class="p">;</span>
+    <span class="n">remise</span> <span class="p">=</span> <span class="m">0.20</span><span class="p">;</span> <span class="c1">// 20% de remise</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">nombreVisites</span> <span class="p">&gt;=</span> <span class="m">20</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">typeClient</span> <span class="p">=</span> <span class="s">"Client fidèle 💖"</span><span class="p">;</span>
+    <span class="n">remise</span> <span class="p">=</span> <span class="m">0.10</span><span class="p">;</span> <span class="c1">// 10% de remise</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">nombreVisites</span> <span class="p">&gt;=</span> <span class="m">5</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">typeClient</span> <span class="p">=</span> <span class="s">"Client régulier ☕"</span><span class="p">;</span>
+    <span class="n">remise</span> <span class="p">=</span> <span class="m">0.05</span><span class="p">;</span> <span class="c1">// 5% de remise</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="n">typeClient</span> <span class="p">=</span> <span class="s">"Nouveau client 👋"</span><span class="p">;</span>
+    <span class="n">remise</span> <span class="p">=</span> <span class="m">0.0</span><span class="p">;</span> <span class="c1">// Pas de remise</span>
+<span class="p">}</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Type : </span><span class="p">{</span><span class="n">typeClient</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Remise applicable : </span><span class="p">{</span><span class="n">remise</span> <span class="p">*</span> <span class="m">100</span><span class="p">}</span><span class="s">%"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="4-linstruction-switch--choisir-parmi-plusieurs-options">4. L’instruction <code class="language-plaintext highlighter-rouge">switch</code> : Choisir parmi plusieurs options</h2>
+
+<p>Quand on a plusieurs valeurs précises à tester, <code class="language-plaintext highlighter-rouge">switch</code> est plus lisible que de multiples <code class="language-plaintext highlighter-rouge">if...else if</code>.</p>
+
+<h3 id="syntaxe-2">Syntaxe</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">switch</span> <span class="p">(</span><span class="n">variable</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">case</span> <span class="n">valeur1</span><span class="p">:</span>
+        <span class="c1">// Code pour valeur1</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="n">valeur2</span><span class="p">:</span>
+        <span class="c1">// Code pour valeur2</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">default</span><span class="p">:</span>
+        <span class="c1">// Code par défaut</span>
+        <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exemple--préparation-selon-le-type-de-café">Exemple : Préparation selon le type de café</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">string</span> <span class="n">typeCafe</span> <span class="p">=</span> <span class="s">"Cappuccino"</span><span class="p">;</span>
+
+<span class="k">switch</span> <span class="p">(</span><span class="n">typeCafe</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">case</span> <span class="s">"Espresso"</span><span class="p">:</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"☕ Préparation Espresso :"</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"- 18g de café moulu"</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"- 30ml d'eau chaude"</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"- Extraction en 25 secondes"</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+        
+    <span class="k">case</span> <span class="s">"Americano"</span><span class="p">:</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"☕ Préparation Americano :"</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"- 1 dose d'espresso"</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"- 120ml d'eau chaude"</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+        
+    <span class="k">case</span> <span class="s">"Cappuccino"</span><span class="p">:</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"☕ Préparation Cappuccino :"</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"- 1 dose d'espresso"</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"- 60ml de lait"</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"- Mousser le lait"</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+        
+    <span class="k">case</span> <span class="s">"Latte"</span><span class="p">:</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"☕ Préparation Latte :"</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"- 1 dose d'espresso"</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"- 180ml de lait"</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"- Mousse légère"</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+        
+    <span class="k">default</span><span class="p">:</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"❌ Type de café non reconnu"</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Cafés disponibles : Espresso, Americano, Cappuccino, Latte"</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exemple--calcul-du-prix-selon-la-taille">Exemple : Calcul du prix selon la taille</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">string</span> <span class="n">taille</span> <span class="p">=</span> <span class="s">"L"</span><span class="p">;</span>
+<span class="kt">double</span> <span class="n">prixBase</span> <span class="p">=</span> <span class="m">3.0</span><span class="p">;</span>
+<span class="kt">double</span> <span class="n">prixFinal</span><span class="p">;</span>
+
+<span class="k">switch</span> <span class="p">(</span><span class="n">taille</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">case</span> <span class="s">"S"</span><span class="p">:</span>
+        <span class="n">prixFinal</span> <span class="p">=</span> <span class="n">prixBase</span> <span class="p">-</span> <span class="m">0.5</span><span class="p">;</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Taille S - Prix : </span><span class="p">{</span><span class="n">prixFinal</span><span class="p">}</span><span class="s">€"</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+        
+    <span class="k">case</span> <span class="s">"M"</span><span class="p">:</span>
+        <span class="n">prixFinal</span> <span class="p">=</span> <span class="n">prixBase</span><span class="p">;</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Taille M - Prix : </span><span class="p">{</span><span class="n">prixFinal</span><span class="p">}</span><span class="s">€"</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+        
+    <span class="k">case</span> <span class="s">"L"</span><span class="p">:</span>
+        <span class="n">prixFinal</span> <span class="p">=</span> <span class="n">prixBase</span> <span class="p">+</span> <span class="m">0.5</span><span class="p">;</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Taille L - Prix : </span><span class="p">{</span><span class="n">prixFinal</span><span class="p">}</span><span class="s">€"</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+        
+    <span class="k">case</span> <span class="s">"XL"</span><span class="p">:</span>
+        <span class="n">prixFinal</span> <span class="p">=</span> <span class="n">prixBase</span> <span class="p">+</span> <span class="m">1.0</span><span class="p">;</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Taille XL - Prix : </span><span class="p">{</span><span class="n">prixFinal</span><span class="p">}</span><span class="s">€"</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+        
+    <span class="k">default</span><span class="p">:</span>
+        <span class="n">prixFinal</span> <span class="p">=</span> <span class="n">prixBase</span><span class="p">;</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Taille inconnue, prix standard M : </span><span class="p">{</span><span class="n">prixFinal</span><span class="p">}</span><span class="s">€"</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="5-les-opérateurs-de-comparaison">5. Les opérateurs de comparaison</h2>
+
+<h3 id="opérateurs-de-base">Opérateurs de base</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">stock</span> <span class="p">=</span> <span class="m">100</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">minimum</span> <span class="p">=</span> <span class="m">50</span><span class="p">;</span>
+
+<span class="c1">// Égalité</span>
+<span class="kt">bool</span> <span class="n">estEgal</span> <span class="p">=</span> <span class="n">stock</span> <span class="p">==</span> <span class="n">minimum</span><span class="p">;</span>           <span class="c1">// false</span>
+
+<span class="c1">// Différence  </span>
+<span class="kt">bool</span> <span class="n">estDifferent</span> <span class="p">=</span> <span class="n">stock</span> <span class="p">!=</span> <span class="n">minimum</span><span class="p">;</span>      <span class="c1">// true</span>
+
+<span class="c1">// Comparaisons</span>
+<span class="kt">bool</span> <span class="n">estSuperieur</span> <span class="p">=</span> <span class="n">stock</span> <span class="p">&gt;</span> <span class="n">minimum</span><span class="p">;</span>       <span class="c1">// true</span>
+<span class="kt">bool</span> <span class="n">estInferieur</span> <span class="p">=</span> <span class="n">stock</span> <span class="p">&lt;</span> <span class="n">minimum</span><span class="p">;</span>       <span class="c1">// false</span>
+<span class="kt">bool</span> <span class="n">estSuperieurEgal</span> <span class="p">=</span> <span class="n">stock</span> <span class="p">&gt;=</span> <span class="n">minimum</span><span class="p">;</span>  <span class="c1">// true</span>
+<span class="kt">bool</span> <span class="n">estInferieurEgal</span> <span class="p">=</span> <span class="n">stock</span> <span class="p">&lt;=</span> <span class="n">minimum</span><span class="p">;</span>  <span class="c1">// false</span>
+</code></pre></div></div>
+
+<h3 id="opérateurs-logiques">Opérateurs logiques</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">bool</span> <span class="n">machineAllumee</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="kt">bool</span> <span class="n">stockSuffisant</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="kt">bool</span> <span class="n">clientPresent</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+
+<span class="c1">// ET logique (&amp;&amp;) - toutes les conditions doivent être vraies</span>
+<span class="kt">bool</span> <span class="n">peutServir</span> <span class="p">=</span> <span class="n">machineAllumee</span> <span class="p">&amp;&amp;</span> <span class="n">stockSuffisant</span><span class="p">;</span>  <span class="c1">// true</span>
+
+<span class="c1">// OU logique (||) - au moins une condition doit être vraie  </span>
+<span class="kt">bool</span> <span class="n">ouvert</span> <span class="p">=</span> <span class="n">clientPresent</span> <span class="p">||</span> <span class="n">stockSuffisant</span><span class="p">;</span>       <span class="c1">// true</span>
+
+<span class="c1">// NON logique (!) - inverse la valeur</span>
+<span class="kt">bool</span> <span class="n">machineFermee</span> <span class="p">=</span> <span class="p">!</span><span class="n">machineAllumee</span><span class="p">;</span>               <span class="c1">// false</span>
+</code></pre></div></div>
+
+<h3 id="exemple-pratique--validation-de-commande">Exemple pratique : Validation de commande</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">stockCafe</span> <span class="p">=</span> <span class="m">200</span><span class="p">;</span>     <span class="c1">// grammes</span>
+<span class="kt">int</span> <span class="n">stockLait</span> <span class="p">=</span> <span class="m">500</span><span class="p">;</span>     <span class="c1">// millilitres</span>
+<span class="kt">bool</span> <span class="n">machineMarche</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="kt">string</span> <span class="n">commande</span> <span class="p">=</span> <span class="s">"Cappuccino"</span><span class="p">;</span>
+
+<span class="kt">bool</span> <span class="n">peutPreparerCappuccino</span> <span class="p">=</span> <span class="n">machineMarche</span> <span class="p">&amp;&amp;</span> 
+                             <span class="n">stockCafe</span> <span class="p">&gt;=</span> <span class="m">18</span> <span class="p">&amp;&amp;</span> 
+                             <span class="n">stockLait</span> <span class="p">&gt;=</span> <span class="m">60</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">commande</span> <span class="p">==</span> <span class="s">"Cappuccino"</span> <span class="p">&amp;&amp;</span> <span class="n">peutPreparerCappuccino</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"✅ Cappuccino en préparation !"</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">commande</span> <span class="p">==</span> <span class="s">"Cappuccino"</span> <span class="p">&amp;&amp;</span> <span class="p">!</span><span class="n">peutPreparerCappuccino</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"❌ Impossible de préparer le cappuccino :"</span><span class="p">);</span>
+    
+    <span class="k">if</span> <span class="p">(!</span><span class="n">machineMarche</span><span class="p">)</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"- Machine en panne"</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">stockCafe</span> <span class="p">&lt;</span> <span class="m">18</span><span class="p">)</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"- Pas assez de café"</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">stockLait</span> <span class="p">&lt;</span> <span class="m">60</span><span class="p">)</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"- Pas assez de lait"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="6-exemple-complet--système-de-commande">6. Exemple complet : Système de commande</h2>
+
+<p>Assemblons tout dans un système de gestion de commandes :</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ProgrammeCafe</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// État du café</span>
+        <span class="kt">int</span> <span class="n">stockCafe</span> <span class="p">=</span> <span class="m">150</span><span class="p">;</span>        <span class="c1">// grammes</span>
+        <span class="kt">int</span> <span class="n">stockLait</span> <span class="p">=</span> <span class="m">800</span><span class="p">;</span>        <span class="c1">// ml</span>
+        <span class="kt">bool</span> <span class="n">machineMarche</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">heure</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
+        
+        <span class="c1">// Commande client</span>
+        <span class="kt">string</span> <span class="n">nomClient</span> <span class="p">=</span> <span class="s">"Sophie"</span><span class="p">;</span>
+        <span class="kt">string</span> <span class="n">typeCommande</span> <span class="p">=</span> <span class="s">"Cappuccino"</span><span class="p">;</span>
+        <span class="kt">string</span> <span class="n">taille</span> <span class="p">=</span> <span class="s">"L"</span><span class="p">;</span>
+        
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"=== ☕ CAFÉ DU COIN ☕ ==="</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Client : </span><span class="p">{</span><span class="n">nomClient</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Commande : </span><span class="p">{</span><span class="n">typeCommande</span><span class="p">}</span><span class="s"> taille </span><span class="p">{</span><span class="n">taille</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">();</span>
+        
+        <span class="c1">// Vérifier l'heure d'ouverture</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">heure</span> <span class="p">&lt;</span> <span class="m">7</span> <span class="p">||</span> <span class="n">heure</span> <span class="p">&gt;</span> <span class="m">19</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"❌ Désolé, nous sommes fermés !"</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Horaires : 7h - 19h"</span><span class="p">);</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        
+        <span class="c1">// Déterminer les besoins selon la commande</span>
+        <span class="kt">int</span> <span class="n">cafeNecessaire</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">laitNecessaire</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+        <span class="kt">double</span> <span class="n">prixBase</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+        
+        <span class="k">switch</span> <span class="p">(</span><span class="n">typeCommande</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">case</span> <span class="s">"Espresso"</span><span class="p">:</span>
+                <span class="n">cafeNecessaire</span> <span class="p">=</span> <span class="m">18</span><span class="p">;</span>
+                <span class="n">laitNecessaire</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+                <span class="n">prixBase</span> <span class="p">=</span> <span class="m">2.5</span><span class="p">;</span>
+                <span class="k">break</span><span class="p">;</span>
+                
+            <span class="k">case</span> <span class="s">"Americano"</span><span class="p">:</span>
+                <span class="n">cafeNecessaire</span> <span class="p">=</span> <span class="m">18</span><span class="p">;</span>
+                <span class="n">laitNecessaire</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+                <span class="n">prixBase</span> <span class="p">=</span> <span class="m">3.0</span><span class="p">;</span>
+                <span class="k">break</span><span class="p">;</span>
+                
+            <span class="k">case</span> <span class="s">"Cappuccino"</span><span class="p">:</span>
+                <span class="n">cafeNecessaire</span> <span class="p">=</span> <span class="m">18</span><span class="p">;</span>
+                <span class="n">laitNecessaire</span> <span class="p">=</span> <span class="m">60</span><span class="p">;</span>
+                <span class="n">prixBase</span> <span class="p">=</span> <span class="m">4.0</span><span class="p">;</span>
+                <span class="k">break</span><span class="p">;</span>
+                
+            <span class="k">case</span> <span class="s">"Latte"</span><span class="p">:</span>
+                <span class="n">cafeNecessaire</span> <span class="p">=</span> <span class="m">18</span><span class="p">;</span>
+                <span class="n">laitNecessaire</span> <span class="p">=</span> <span class="m">150</span><span class="p">;</span>
+                <span class="n">prixBase</span> <span class="p">=</span> <span class="m">4.5</span><span class="p">;</span>
+                <span class="k">break</span><span class="p">;</span>
+                
+            <span class="k">default</span><span class="p">:</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"❌ Type de café non disponible"</span><span class="p">);</span>
+                <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        
+        <span class="c1">// Ajuster le prix selon la taille</span>
+        <span class="kt">double</span> <span class="n">prixFinal</span> <span class="p">=</span> <span class="n">prixBase</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">taille</span> <span class="p">==</span> <span class="s">"L"</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">prixFinal</span> <span class="p">+=</span> <span class="m">0.5</span><span class="p">;</span>
+            <span class="n">cafeNecessaire</span> <span class="p">+=</span> <span class="m">3</span><span class="p">;</span>
+            <span class="n">laitNecessaire</span> <span class="p">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">laitNecessaire</span> <span class="p">*</span> <span class="m">1.3</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">taille</span> <span class="p">==</span> <span class="s">"XL"</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">prixFinal</span> <span class="p">+=</span> <span class="m">1.0</span><span class="p">;</span>
+            <span class="n">cafeNecessaire</span> <span class="p">+=</span> <span class="m">6</span><span class="p">;</span>
+            <span class="n">laitNecessaire</span> <span class="p">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">laitNecessaire</span> <span class="p">*</span> <span class="m">1.6</span><span class="p">);</span>
+        <span class="p">}</span>
+        
+        <span class="c1">// Vérifications</span>
+        <span class="kt">bool</span> <span class="n">stockOk</span> <span class="p">=</span> <span class="n">stockCafe</span> <span class="p">&gt;=</span> <span class="n">cafeNecessaire</span> <span class="p">&amp;&amp;</span> <span class="n">stockLait</span> <span class="p">&gt;=</span> <span class="n">laitNecessaire</span><span class="p">;</span>
+        
+        <span class="k">if</span> <span class="p">(!</span><span class="n">machineMarche</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"❌ Machine en maintenance, désolé !"</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(!</span><span class="n">stockOk</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"❌ Stock insuffisant :"</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">stockCafe</span> <span class="p">&lt;</span> <span class="n">cafeNecessaire</span><span class="p">)</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"- Café manquant : </span><span class="p">{</span><span class="n">cafeNecessaire</span> <span class="p">-</span> <span class="n">stockCafe</span><span class="p">}</span><span class="s">g"</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">stockLait</span> <span class="p">&lt;</span> <span class="n">laitNecessaire</span><span class="p">)</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"- Lait manquant : </span><span class="p">{</span><span class="n">laitNecessaire</span> <span class="p">-</span> <span class="n">stockLait</span><span class="p">}</span><span class="s">ml"</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="c1">// Préparer la commande</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"✅ Commande acceptée !"</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Prix : </span><span class="p">{</span><span class="n">prixFinal</span><span class="p">}</span><span class="s">€"</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">();</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"🔄 Préparation en cours..."</span><span class="p">);</span>
+            
+            <span class="c1">// Décrémenter le stock</span>
+            <span class="n">stockCafe</span> <span class="p">-=</span> <span class="n">cafeNecessaire</span><span class="p">;</span>
+            <span class="n">stockLait</span> <span class="p">-=</span> <span class="n">laitNecessaire</span><span class="p">;</span>
+            
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"☕ </span><span class="p">{</span><span class="n">typeCommande</span><span class="p">}</span><span class="s"> </span><span class="p">{</span><span class="n">taille</span><span class="p">}</span><span class="s"> prêt pour </span><span class="p">{</span><span class="n">nomClient</span><span class="p">}</span><span class="s"> !"</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Stock restant - Café : </span><span class="p">{</span><span class="n">stockCafe</span><span class="p">}</span><span class="s">g, Lait : </span><span class="p">{</span><span class="n">stockLait</span><span class="p">}</span><span class="s">ml"</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="7-conseils-et-bonnes-pratiques">7. Conseils et bonnes pratiques</h2>
+
+<h3 id="-utilisez-des-noms-explicites">✅ Utilisez des noms explicites</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 👍 Bon</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">stockCafe</span> <span class="p">&gt;=</span> <span class="n">cafeNecessairePourEspresso</span><span class="p">)</span>
+
+<span class="c1">// 👎 Éviter  </span>
+<span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="p">&gt;=</span> <span class="n">y</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="-groupez-les-conditions-complexes">✅ Groupez les conditions complexes</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">bool</span> <span class="n">stockSuffisant</span> <span class="p">=</span> <span class="n">stockCafe</span> <span class="p">&gt;=</span> <span class="m">18</span> <span class="p">&amp;&amp;</span> <span class="n">stockLait</span> <span class="p">&gt;=</span> <span class="m">60</span><span class="p">;</span>
+<span class="kt">bool</span> <span class="n">peutServir</span> <span class="p">=</span> <span class="n">machineMarche</span> <span class="p">&amp;&amp;</span> <span class="n">stockSuffisant</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">peutServir</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Préparer le café</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="-préférez-switch-pour-de-multiples-valeurs-exactes">✅ Préférez <code class="language-plaintext highlighter-rouge">switch</code> pour de multiples valeurs exactes</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 👍 Plus lisible avec switch</span>
+<span class="k">switch</span> <span class="p">(</span><span class="n">typeCafe</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">case</span> <span class="s">"Espresso"</span><span class="p">:</span> <span class="cm">/* ... */</span> <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="s">"Latte"</span><span class="p">:</span> <span class="cm">/* ... */</span> <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 👎 Moins lisible avec if/else</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">typeCafe</span> <span class="p">==</span> <span class="s">"Espresso"</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">typeCafe</span> <span class="p">==</span> <span class="s">"Latte"</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="exercices-pratiques">Exercices pratiques</h2>
+
+<h3 id="exercice-1--menu-dynamique">Exercice 1 : Menu dynamique</h3>
+<p>Créez un programme qui affiche un menu différent selon l’heure :</p>
+<ul>
+  <li>6h-11h : Petit-déjeuner</li>
+  <li>11h-15h : Déjeuner</li>
+  <li>15h-18h : Goûter</li>
+  <li>18h-22h : Soirée</li>
+</ul>
+
+<h3 id="exercice-2--calculateur-de-remise">Exercice 2 : Calculateur de remise</h3>
+<p>Créez un système de fidélité avec :</p>
+<ul>
+  <li>0-4 visites : Aucune remise</li>
+  <li>5-19 visites : 5% de remise</li>
+  <li>20-49 visites : 10% de remise</li>
+  <li>50+ visites : 15% de remise</li>
+</ul>
+
+<h3 id="exercice-3--vérificateur-de-stock">Exercice 3 : Vérificateur de stock</h3>
+<p>Créez un programme qui vérifie si on peut préparer une commande selon le stock disponible.</p>
+
+<hr />
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Les structures de contrôle sont les <strong>fondations de la logique</strong> en programmation ! Elles nous permettent de :</p>
+
+<ul>
+  <li>✅ <strong>Prendre des décisions</strong> avec <code class="language-plaintext highlighter-rouge">if/else</code></li>
+  <li>✅ <strong>Gérer plusieurs options</strong> avec <code class="language-plaintext highlighter-rouge">switch</code></li>
+  <li>✅ <strong>Combiner des conditions</strong> avec les opérateurs logiques</li>
+</ul>
+
+<p>Comme un bon barista qui s’adapte aux demandes de ses clients, un développeur utilise les structures de contrôle pour créer des programmes intelligents et réactifs !</p>
+
+<p><strong>Prochaine étape :</strong> Nous découvrirons les boucles pour automatiser les tâches répétitives - parfait pour préparer plusieurs cafés d’affilée ! ☕</p>
+
+<hr />
+
+<p><em>N’hésitez pas à expérimenter avec ces exemples et à créer vos propres scénarios de café. La programmation, comme l’art du café, se maîtrise avec la pratique ! 🚀</em></p>
+
+  </div><a class="u-url" href="/2025/01/27/conditions-structures-controle.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Le dev, c&#39;est dièse</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">MattDevBzh</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Veille, tutoriels .NET, Azure et plus</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

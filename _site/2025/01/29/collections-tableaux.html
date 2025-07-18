@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Collections et tableaux en C# : Organiser l’inventaire de votre café | Le dev, c’est dièse</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Collections et tableaux en C# : Organiser l’inventaire de votre café" />
+<meta name="author" content="MattDevBzh" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Un café bien géré, c’est un café où tout est organisé et facilement accessible ! Comme les étagères de grains, les collections de tasses ou la liste des clients fidèles. En C#, les collections et tableaux nous permettent de stocker et organiser efficacement nos données. ☕" />
+<meta property="og:description" content="Un café bien géré, c’est un café où tout est organisé et facilement accessible ! Comme les étagères de grains, les collections de tasses ou la liste des clients fidèles. En C#, les collections et tableaux nous permettent de stocker et organiser efficacement nos données. ☕" />
+<link rel="canonical" href="http://0.0.0.0:4000/2025/01/29/collections-tableaux.html" />
+<meta property="og:url" content="http://0.0.0.0:4000/2025/01/29/collections-tableaux.html" />
+<meta property="og:site_name" content="Le dev, c’est dièse" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-01-29T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Collections et tableaux en C# : Organiser l’inventaire de votre café" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MattDevBzh"},"dateModified":"2025-01-29T00:00:00+00:00","datePublished":"2025-01-29T00:00:00+00:00","description":"Un café bien géré, c’est un café où tout est organisé et facilement accessible ! Comme les étagères de grains, les collections de tasses ou la liste des clients fidèles. En C#, les collections et tableaux nous permettent de stocker et organiser efficacement nos données. ☕","headline":"Collections et tableaux en C# : Organiser l’inventaire de votre café","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/2025/01/29/collections-tableaux.html"},"url":"http://0.0.0.0:4000/2025/01/29/collections-tableaux.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://0.0.0.0:4000/feed.xml" title="Le dev, c&apos;est dièse" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Le dev, c&#39;est dièse</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/">Bienvenue sur mon blog tech</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Collections et tableaux en C# : Organiser l&#39;inventaire de votre café</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2025-01-29T00:00:00+00:00" itemprop="datePublished">Jan 29, 2025
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Un café bien géré, c’est un café où tout est <strong>organisé et facilement accessible</strong> ! Comme les étagères de grains, les collections de tasses ou la liste des clients fidèles. En C#, les <strong>collections et tableaux</strong> nous permettent de stocker et organiser efficacement nos données. ☕</p>
+
+<p>Découvrons ensemble comment gérer l’inventaire complet de notre café virtuel !</p>
+
+<h2 id="sommaire">Sommaire</h2>
+<ul id="markdown-toc">
+  <li><a href="#sommaire" id="markdown-toc-sommaire">Sommaire</a></li>
+  <li><a href="#quest-ce-quune-collection-" id="markdown-toc-quest-ce-quune-collection-">Qu’est-ce qu’une collection ?</a></li>
+  <li><a href="#1-les-tableaux-array--des-cases-fixes" id="markdown-toc-1-les-tableaux-array--des-cases-fixes">1. Les tableaux (<code class="language-plaintext highlighter-rouge">Array</code>) : Des cases fixes</a>    <ul>
+      <li><a href="#déclaration-et-initialisation" id="markdown-toc-déclaration-et-initialisation">Déclaration et initialisation</a></li>
+      <li><a href="#exemple--stock-de-grains-par-origine" id="markdown-toc-exemple--stock-de-grains-par-origine">Exemple : Stock de grains par origine</a></li>
+      <li><a href="#exemple--ventes-par-jour-de-la-semaine" id="markdown-toc-exemple--ventes-par-jour-de-la-semaine">Exemple : Ventes par jour de la semaine</a></li>
+    </ul>
+  </li>
+  <li><a href="#2-les-tableaux-multidimensionnels--organiser-en-grille" id="markdown-toc-2-les-tableaux-multidimensionnels--organiser-en-grille">2. Les tableaux multidimensionnels : Organiser en grille</a>    <ul>
+      <li><a href="#tableau-à-2-dimensions--menu-avec-prix-et-stocks" id="markdown-toc-tableau-à-2-dimensions--menu-avec-prix-et-stocks">Tableau à 2 dimensions : Menu avec prix et stocks</a></li>
+      <li><a href="#exemple--planning-des-baristas" id="markdown-toc-exemple--planning-des-baristas">Exemple : Planning des baristas</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-les-listes-listt--taille-dynamique" id="markdown-toc-3-les-listes-listt--taille-dynamique">3. Les listes (<code class="language-plaintext highlighter-rouge">List&lt;T&gt;</code>) : Taille dynamique</a>    <ul>
+      <li><a href="#déclaration-et-manipulation-de-base" id="markdown-toc-déclaration-et-manipulation-de-base">Déclaration et manipulation de base</a></li>
+      <li><a href="#exemple--gestion-dynamique-du-stock" id="markdown-toc-exemple--gestion-dynamique-du-stock">Exemple : Gestion dynamique du stock</a></li>
+      <li><a href="#exemple--file-dattente-dynamique" id="markdown-toc-exemple--file-dattente-dynamique">Exemple : File d’attente dynamique</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-les-dictionnaires-dictionarykv--clé-valeur" id="markdown-toc-4-les-dictionnaires-dictionarykv--clé-valeur">4. Les dictionnaires (<code class="language-plaintext highlighter-rouge">Dictionary&lt;K,V&gt;</code>) : Clé-valeur</a>    <ul>
+      <li><a href="#exemple--carte-des-prix" id="markdown-toc-exemple--carte-des-prix">Exemple : Carte des prix</a></li>
+      <li><a href="#exemple--préférences-des-clients" id="markdown-toc-exemple--préférences-des-clients">Exemple : Préférences des clients</a></li>
+    </ul>
+  </li>
+  <li><a href="#5-les-hashset--collections-uniques" id="markdown-toc-5-les-hashset--collections-uniques">5. Les HashSet : Collections uniques</a>    <ul>
+      <li><a href="#exemple--gestion-des-allergènes" id="markdown-toc-exemple--gestion-des-allergènes">Exemple : Gestion des allergènes</a></li>
+    </ul>
+  </li>
+  <li><a href="#6-linq--requêtes-sur-les-collections" id="markdown-toc-6-linq--requêtes-sur-les-collections">6. LINQ : Requêtes sur les collections</a>    <ul>
+      <li><a href="#exemple--analyses-de-ventes" id="markdown-toc-exemple--analyses-de-ventes">Exemple : Analyses de ventes</a></li>
+    </ul>
+  </li>
+  <li><a href="#7-exemple-complet--système-de-gestion-de-café" id="markdown-toc-7-exemple-complet--système-de-gestion-de-café">7. Exemple complet : Système de gestion de café</a></li>
+  <li><a href="#8-bonnes-pratiques-et-performance" id="markdown-toc-8-bonnes-pratiques-et-performance">8. Bonnes pratiques et performance</a>    <ul>
+      <li><a href="#-choisir-la-bonne-collection" id="markdown-toc--choisir-la-bonne-collection">✅ Choisir la bonne collection</a></li>
+      <li><a href="#-initialiser-avec-la-bonne-capacité" id="markdown-toc--initialiser-avec-la-bonne-capacité">✅ Initialiser avec la bonne capacité</a></li>
+      <li><a href="#-utiliser-linq-avec-modération" id="markdown-toc--utiliser-linq-avec-modération">✅ Utiliser LINQ avec modération</a></li>
+    </ul>
+  </li>
+  <li><a href="#exercices-pratiques" id="markdown-toc-exercices-pratiques">Exercices pratiques</a>    <ul>
+      <li><a href="#exercice-1--gestionnaire-de-stock" id="markdown-toc-exercice-1--gestionnaire-de-stock">Exercice 1 : Gestionnaire de stock</a></li>
+      <li><a href="#exercice-2--analyseur-de-préférences" id="markdown-toc-exercice-2--analyseur-de-préférences">Exercice 2 : Analyseur de préférences</a></li>
+      <li><a href="#exercice-3--planificateur-de-tournées" id="markdown-toc-exercice-3--planificateur-de-tournées">Exercice 3 : Planificateur de tournées</a></li>
+    </ul>
+  </li>
+  <li><a href="#conclusion" id="markdown-toc-conclusion">Conclusion</a></li>
+</ul>
+
+<hr />
+
+<h2 id="quest-ce-quune-collection-">Qu’est-ce qu’une collection ?</h2>
+
+<p>Une <strong>collection</strong> est un conteneur qui peut stocker plusieurs éléments du même type. C’est comme :</p>
+
+<ul>
+  <li>📦 <strong>Un bac de grains</strong> contenant différentes variétés</li>
+  <li>📋 <strong>Une liste de commandes</strong> en attente</li>
+  <li>🏪 <strong>Un inventaire de produits</strong> avec leurs prix</li>
+  <li>👥 <strong>Un fichier clients</strong> avec leurs préférences</li>
+</ul>
+
+<hr />
+
+<h2 id="1-les-tableaux-array--des-cases-fixes">1. Les tableaux (<code class="language-plaintext highlighter-rouge">Array</code>) : Des cases fixes</h2>
+
+<p>Un tableau a une <strong>taille fixe</strong> définie à la création. C’est comme un portoir à tasses qui a exactement 20 emplacements.</p>
+
+<h3 id="déclaration-et-initialisation">Déclaration et initialisation</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Déclaration avec taille</span>
+<span class="kt">string</span><span class="p">[]</span> <span class="n">menuCafes</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">string</span><span class="p">[</span><span class="m">5</span><span class="p">];</span>
+
+<span class="c1">// Initialisation avec valeurs</span>
+<span class="kt">string</span><span class="p">[]</span> <span class="n">varietesGrains</span> <span class="p">=</span> <span class="p">{</span><span class="s">"Arabica"</span><span class="p">,</span> <span class="s">"Robusta"</span><span class="p">,</span> <span class="s">"Liberica"</span><span class="p">,</span> <span class="s">"Excelsa"</span><span class="p">};</span>
+
+<span class="c1">// Déclaration et initialisation en une fois</span>
+<span class="kt">double</span><span class="p">[]</span> <span class="n">prixMenu</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">double</span><span class="p">[]</span> <span class="p">{</span><span class="m">2.50</span><span class="p">,</span> <span class="m">4.00</span><span class="p">,</span> <span class="m">4.50</span><span class="p">,</span> <span class="m">3.00</span><span class="p">,</span> <span class="m">3.80</span><span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="exemple--stock-de-grains-par-origine">Exemple : Stock de grains par origine</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Inventaire des grains par pays</span>
+<span class="kt">string</span><span class="p">[]</span> <span class="n">origines</span> <span class="p">=</span> <span class="p">{</span><span class="s">"Colombie"</span><span class="p">,</span> <span class="s">"Éthiopie"</span><span class="p">,</span> <span class="s">"Guatemala"</span><span class="p">,</span> <span class="s">"Jamaïque"</span><span class="p">,</span> <span class="s">"Yemen"</span><span class="p">};</span>
+<span class="kt">int</span><span class="p">[]</span> <span class="n">stockKilos</span> <span class="p">=</span> <span class="p">{</span><span class="m">25</span><span class="p">,</span> <span class="m">18</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">15</span><span class="p">};</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"☕ === STOCK DE GRAINS PAR ORIGINE ==="</span><span class="p">);</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">origines</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">origines</span><span class="p">[</span><span class="n">i</span><span class="p">]}</span><span class="s"> : </span><span class="p">{</span><span class="n">stockKilos</span><span class="p">[</span><span class="n">i</span><span class="p">]}</span><span class="s"> kg"</span><span class="p">);</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="n">stockKilos</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">&lt;</span> <span class="m">10</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"   ⚠️ Stock faible pour </span><span class="p">{</span><span class="n">origines</span><span class="p">[</span><span class="n">i</span><span class="p">]}</span><span class="s"> !"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Calcul du stock total</span>
+<span class="kt">int</span> <span class="n">stockTotal</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="kt">int</span> <span class="n">stock</span> <span class="k">in</span> <span class="n">stockKilos</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">stockTotal</span> <span class="p">+=</span> <span class="n">stock</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"\n📊 Stock total : </span><span class="p">{</span><span class="n">stockTotal</span><span class="p">}</span><span class="s"> kg"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="exemple--ventes-par-jour-de-la-semaine">Exemple : Ventes par jour de la semaine</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">string</span><span class="p">[]</span> <span class="n">joursSemaine</span> <span class="p">=</span> <span class="p">{</span><span class="s">"Lundi"</span><span class="p">,</span> <span class="s">"Mardi"</span><span class="p">,</span> <span class="s">"Mercredi"</span><span class="p">,</span> <span class="s">"Jeudi"</span><span class="p">,</span> <span class="s">"Vendredi"</span><span class="p">,</span> <span class="s">"Samedi"</span><span class="p">,</span> <span class="s">"Dimanche"</span><span class="p">};</span>
+<span class="kt">double</span><span class="p">[]</span> <span class="n">ventesJour</span> <span class="p">=</span> <span class="p">{</span><span class="m">320.50</span><span class="p">,</span> <span class="m">385.20</span><span class="p">,</span> <span class="m">410.80</span><span class="p">,</span> <span class="m">445.30</span><span class="p">,</span> <span class="m">520.90</span><span class="p">,</span> <span class="m">680.40</span><span class="p">,</span> <span class="m">580.70</span><span class="p">};</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"📊 === VENTES HEBDOMADAIRES ==="</span><span class="p">);</span>
+
+<span class="c1">// Affichage des ventes</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">joursSemaine</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">joursSemaine</span><span class="p">[</span><span class="n">i</span><span class="p">]}</span><span class="s"> : </span><span class="p">{</span><span class="n">ventesJour</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span><span class="n">C2</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Jour avec le plus de ventes</span>
+<span class="kt">double</span> <span class="n">maxVentes</span> <span class="p">=</span> <span class="n">ventesJour</span><span class="p">[</span><span class="m">0</span><span class="p">];</span>
+<span class="kt">int</span> <span class="n">jourMax</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">ventesJour</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ventesJour</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">&gt;</span> <span class="n">maxVentes</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">maxVentes</span> <span class="p">=</span> <span class="n">ventesJour</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+        <span class="n">jourMax</span> <span class="p">=</span> <span class="n">i</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"\n🏆 Meilleur jour : </span><span class="p">{</span><span class="n">joursSemaine</span><span class="p">[</span><span class="n">jourMax</span><span class="p">]}</span><span class="s"> (</span><span class="p">{</span><span class="n">maxVentes</span><span class="p">:</span><span class="n">C2</span><span class="p">}</span><span class="s">)"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="2-les-tableaux-multidimensionnels--organiser-en-grille">2. Les tableaux multidimensionnels : Organiser en grille</h2>
+
+<h3 id="tableau-à-2-dimensions--menu-avec-prix-et-stocks">Tableau à 2 dimensions : Menu avec prix et stocks</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// [produit, 0=prix, 1=stock]</span>
+<span class="kt">double</span><span class="p">[,]</span> <span class="n">inventaireCafe</span> <span class="p">=</span> <span class="p">{</span>
+    <span class="p">{</span><span class="m">2.50</span><span class="p">,</span> <span class="m">50</span><span class="p">},</span>  <span class="c1">// Espresso : 2.50€, 50 unités</span>
+    <span class="p">{</span><span class="m">4.00</span><span class="p">,</span> <span class="m">35</span><span class="p">},</span>  <span class="c1">// Cappuccino : 4.00€, 35 unités  </span>
+    <span class="p">{</span><span class="m">4.50</span><span class="p">,</span> <span class="m">28</span><span class="p">},</span>  <span class="c1">// Latte : 4.50€, 28 unités</span>
+    <span class="p">{</span><span class="m">3.00</span><span class="p">,</span> <span class="m">42</span><span class="p">},</span>  <span class="c1">// Americano : 3.00€, 42 unités</span>
+    <span class="p">{</span><span class="m">3.80</span><span class="p">,</span> <span class="m">31</span><span class="p">}</span>   <span class="c1">// Macchiato : 3.80€, 31 unités</span>
+<span class="p">};</span>
+
+<span class="kt">string</span><span class="p">[]</span> <span class="n">nomsProduits</span> <span class="p">=</span> <span class="p">{</span><span class="s">"Espresso"</span><span class="p">,</span> <span class="s">"Cappuccino"</span><span class="p">,</span> <span class="s">"Latte"</span><span class="p">,</span> <span class="s">"Americano"</span><span class="p">,</span> <span class="s">"Macchiato"</span><span class="p">};</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"📋 === INVENTAIRE DÉTAILLÉ ==="</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Produit      | Prix   | Stock"</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"-------------|--------|-------"</span><span class="p">);</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">nomsProduits</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+<span class="p">{</span>
+    <span class="kt">double</span> <span class="n">prix</span> <span class="p">=</span> <span class="n">inventaireCafe</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="m">0</span><span class="p">];</span>
+    <span class="kt">double</span> <span class="n">stock</span> <span class="p">=</span> <span class="n">inventaireCafe</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="m">1</span><span class="p">];</span>
+    
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">nomsProduits</span><span class="p">[</span><span class="n">i</span><span class="p">],-</span><span class="m">12</span><span class="p">}</span><span class="s"> | </span><span class="p">{</span><span class="n">prix</span><span class="p">,</span><span class="m">6</span><span class="p">:</span><span class="n">C2</span><span class="p">}</span><span class="s"> | </span><span class="p">{</span><span class="n">stock</span><span class="p">,</span><span class="m">5</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exemple--planning-des-baristas">Exemple : Planning des baristas</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">string</span><span class="p">[,]</span> <span class="n">planningBaristas</span> <span class="p">=</span> <span class="p">{</span>
+    <span class="p">{</span><span class="s">"Marie"</span><span class="p">,</span> <span class="s">"Paul"</span><span class="p">,</span> <span class="s">"Julie"</span><span class="p">},</span>    <span class="c1">// Lundi</span>
+    <span class="p">{</span><span class="s">"Paul"</span><span class="p">,</span> <span class="s">"Tom"</span><span class="p">,</span> <span class="s">"Marie"</span><span class="p">},</span>      <span class="c1">// Mardi</span>
+    <span class="p">{</span><span class="s">"Julie"</span><span class="p">,</span> <span class="s">"Marie"</span><span class="p">,</span> <span class="s">"Paul"</span><span class="p">},</span>    <span class="c1">// Mercredi</span>
+    <span class="p">{</span><span class="s">"Tom"</span><span class="p">,</span> <span class="s">"Julie"</span><span class="p">,</span> <span class="s">"Marie"</span><span class="p">},</span>     <span class="c1">// Jeudi</span>
+    <span class="p">{</span><span class="s">"Marie"</span><span class="p">,</span> <span class="s">"Paul"</span><span class="p">,</span> <span class="s">"Tom"</span><span class="p">}</span>       <span class="c1">// Vendredi</span>
+<span class="p">};</span>
+
+<span class="kt">string</span><span class="p">[]</span> <span class="n">jours</span> <span class="p">=</span> <span class="p">{</span><span class="s">"Lundi"</span><span class="p">,</span> <span class="s">"Mardi"</span><span class="p">,</span> <span class="s">"Mercredi"</span><span class="p">,</span> <span class="s">"Jeudi"</span><span class="p">,</span> <span class="s">"Vendredi"</span><span class="p">};</span>
+<span class="kt">string</span><span class="p">[]</span> <span class="n">horaires</span> <span class="p">=</span> <span class="p">{</span><span class="s">"Matin"</span><span class="p">,</span> <span class="s">"Après-midi"</span><span class="p">,</span> <span class="s">"Soir"</span><span class="p">};</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"👥 === PLANNING DES BARISTAS ==="</span><span class="p">);</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">jour</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">jour</span> <span class="p">&lt;</span> <span class="m">5</span><span class="p">;</span> <span class="n">jour</span><span class="p">++)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"\n📅 </span><span class="p">{</span><span class="n">jours</span><span class="p">[</span><span class="n">jour</span><span class="p">]}</span><span class="s"> :"</span><span class="p">);</span>
+    
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">creneau</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">creneau</span> <span class="p">&lt;</span> <span class="m">3</span><span class="p">;</span> <span class="n">creneau</span><span class="p">++)</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"  </span><span class="p">{</span><span class="n">horaires</span><span class="p">[</span><span class="n">creneau</span><span class="p">]}</span><span class="s"> : </span><span class="p">{</span><span class="n">planningBaristas</span><span class="p">[</span><span class="n">jour</span><span class="p">,</span> <span class="n">creneau</span><span class="p">]}</span><span class="s">"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="3-les-listes-listt--taille-dynamique">3. Les listes (<code class="language-plaintext highlighter-rouge">List&lt;T&gt;</code>) : Taille dynamique</h2>
+
+<p>Les listes peuvent grandir ou diminuer selon les besoins. C’est comme une étagère extensible !</p>
+
+<h3 id="déclaration-et-manipulation-de-base">Déclaration et manipulation de base</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+
+<span class="c1">// Création d'une liste vide</span>
+<span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">commandesEnCours</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;();</span>
+
+<span class="c1">// Création avec valeurs initiales</span>
+<span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">clientsVIP</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span><span class="s">"Marie Dupont"</span><span class="p">,</span> <span class="s">"Paul Martin"</span><span class="p">,</span> <span class="s">"Julie Leblanc"</span><span class="p">};</span>
+
+<span class="c1">// Ajout d'éléments</span>
+<span class="n">commandesEnCours</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"Cappuccino pour Table 3"</span><span class="p">);</span>
+<span class="n">commandesEnCours</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"2 Espressos pour Emporter"</span><span class="p">);</span>
+<span class="n">commandesEnCours</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"Latte Art pour Marie"</span><span class="p">);</span>
+
+<span class="c1">// Affichage</span>
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"📋 === COMMANDES EN COURS ==="</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">commandesEnCours</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">i</span> <span class="p">+</span> <span class="m">1</span><span class="p">}</span><span class="s">. </span><span class="p">{</span><span class="n">commandesEnCours</span><span class="p">[</span><span class="n">i</span><span class="p">]}</span><span class="s">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exemple--gestion-dynamique-du-stock">Exemple : Gestion dynamique du stock</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">produitsManquants</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;();</span>
+<span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">int</span><span class="p">&gt;</span> <span class="n">stocks</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">int</span><span class="p">&gt;</span>
+<span class="p">{</span>
+    <span class="p">{</span><span class="s">"Café Arabica"</span><span class="p">,</span> <span class="m">25</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">"Lait entier"</span><span class="p">,</span> <span class="m">8</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">"Sucre blanc"</span><span class="p">,</span> <span class="m">15</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">"Tasses carton"</span><span class="p">,</span> <span class="m">45</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">"Couvercles"</span><span class="p">,</span> <span class="m">12</span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"🔍 === VÉRIFICATION DU STOCK ==="</span><span class="p">);</span>
+
+<span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">produit</span> <span class="k">in</span> <span class="n">stocks</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">produit</span><span class="p">.</span><span class="n">Key</span><span class="p">}</span><span class="s"> : </span><span class="p">{</span><span class="n">produit</span><span class="p">.</span><span class="n">Value</span><span class="p">}</span><span class="s"> unités"</span><span class="p">);</span>
+    
+    <span class="k">if</span> <span class="p">(</span><span class="n">produit</span><span class="p">.</span><span class="n">Value</span> <span class="p">&lt;</span> <span class="m">20</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">produitsManquants</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">produit</span><span class="p">.</span><span class="n">Key</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"   ⚠️ Stock faible !"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"\n📦 === COMMANDE À PASSER (</span><span class="p">{</span><span class="n">produitsManquants</span><span class="p">.</span><span class="n">Count</span><span class="p">}</span><span class="s"> produits) ==="</span><span class="p">);</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="kt">string</span> <span class="n">produit</span> <span class="k">in</span> <span class="n">produitsManquants</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"- </span><span class="p">{</span><span class="n">produit</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exemple--file-dattente-dynamique">Exemple : File d’attente dynamique</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Client</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">Nom</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">Commande</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="n">DateTime</span> <span class="n">HeureCommande</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">List</span><span class="p">&lt;</span><span class="n">Client</span><span class="p">&gt;</span> <span class="n">fileAttente</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Client</span><span class="p">&gt;();</span>
+
+<span class="c1">// Arrivée de clients</span>
+<span class="n">fileAttente</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="n">Client</span> <span class="p">{</span> <span class="n">Nom</span> <span class="p">=</span> <span class="s">"Sophie"</span><span class="p">,</span> <span class="n">Commande</span> <span class="p">=</span> <span class="s">"Cappuccino"</span><span class="p">,</span> <span class="n">HeureCommande</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span> <span class="p">});</span>
+<span class="n">fileAttente</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="n">Client</span> <span class="p">{</span> <span class="n">Nom</span> <span class="p">=</span> <span class="s">"Marc"</span><span class="p">,</span> <span class="n">Commande</span> <span class="p">=</span> <span class="s">"Espresso"</span><span class="p">,</span> <span class="n">HeureCommande</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">.</span><span class="nf">AddMinutes</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> <span class="p">});</span>
+<span class="n">fileAttente</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="k">new</span> <span class="n">Client</span> <span class="p">{</span> <span class="n">Nom</span> <span class="p">=</span> <span class="s">"Emma"</span><span class="p">,</span> <span class="n">Commande</span> <span class="p">=</span> <span class="s">"Latte"</span><span class="p">,</span> <span class="n">HeureCommande</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">.</span><span class="nf">AddMinutes</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="p">});</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"👥 === FILE D'ATTENTE ==="</span><span class="p">);</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">fileAttente</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">client</span> <span class="p">=</span> <span class="n">fileAttente</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">i</span> <span class="p">+</span> <span class="m">1</span><span class="p">}</span><span class="s">. </span><span class="p">{</span><span class="n">client</span><span class="p">.</span><span class="n">Nom</span><span class="p">}</span><span class="s"> - </span><span class="p">{</span><span class="n">client</span><span class="p">.</span><span class="n">Commande</span><span class="p">}</span><span class="s"> (</span><span class="p">{</span><span class="n">client</span><span class="p">.</span><span class="n">HeureCommande</span><span class="p">:</span><span class="n">HH</span><span class="p">:</span><span class="n">mm</span><span class="p">}</span><span class="s">)"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Servir le premier client</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">fileAttente</span><span class="p">.</span><span class="n">Count</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Client</span> <span class="n">clientServi</span> <span class="p">=</span> <span class="n">fileAttente</span><span class="p">[</span><span class="m">0</span><span class="p">];</span>
+    <span class="n">fileAttente</span><span class="p">.</span><span class="nf">RemoveAt</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"\n✅ </span><span class="p">{</span><span class="n">clientServi</span><span class="p">.</span><span class="n">Nom</span><span class="p">}</span><span class="s"> servi(e) ! Plus que </span><span class="p">{</span><span class="n">fileAttente</span><span class="p">.</span><span class="n">Count</span><span class="p">}</span><span class="s"> clients en attente."</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="4-les-dictionnaires-dictionarykv--clé-valeur">4. Les dictionnaires (<code class="language-plaintext highlighter-rouge">Dictionary&lt;K,V&gt;</code>) : Clé-valeur</h2>
+
+<p>Les dictionnaires stockent des paires clé-valeur. Parfait pour associer des informations !</p>
+
+<h3 id="exemple--carte-des-prix">Exemple : Carte des prix</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">double</span><span class="p">&gt;</span> <span class="n">cartePrix</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">double</span><span class="p">&gt;</span>
+<span class="p">{</span>
+    <span class="p">{</span><span class="s">"Espresso"</span><span class="p">,</span> <span class="m">2.50</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">"Cappuccino"</span><span class="p">,</span> <span class="m">4.00</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">"Latte"</span><span class="p">,</span> <span class="m">4.50</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">"Americano"</span><span class="p">,</span> <span class="m">3.00</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">"Macchiato"</span><span class="p">,</span> <span class="m">3.80</span><span class="p">},</span>
+    <span class="p">{</span><span class="s">"Mocha"</span><span class="p">,</span> <span class="m">5.00</span><span class="p">}</span>
+<span class="p">};</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"💰 === CARTE DES PRIX ==="</span><span class="p">);</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">item</span> <span class="k">in</span> <span class="n">cartePrix</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">item</span><span class="p">.</span><span class="n">Key</span><span class="p">,-</span><span class="m">12</span><span class="p">}</span><span class="s"> : </span><span class="p">{</span><span class="n">item</span><span class="p">.</span><span class="n">Value</span><span class="p">:</span><span class="n">C2</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Recherche d'un prix</span>
+<span class="kt">string</span> <span class="n">cafeRecherche</span> <span class="p">=</span> <span class="s">"Latte"</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">cartePrix</span><span class="p">.</span><span class="nf">ContainsKey</span><span class="p">(</span><span class="n">cafeRecherche</span><span class="p">))</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"\n🔍 Prix du </span><span class="p">{</span><span class="n">cafeRecherche</span><span class="p">}</span><span class="s"> : </span><span class="p">{</span><span class="n">cartePrix</span><span class="p">[</span><span class="n">cafeRecherche</span><span class="p">]:</span><span class="n">C2</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"\n❌ </span><span class="p">{</span><span class="n">cafeRecherche</span><span class="p">}</span><span class="s"> non trouvé dans la carte"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exemple--préférences-des-clients">Exemple : Préférences des clients</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;&gt;</span> <span class="n">preferencesClients</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;&gt;</span>
+<span class="p">{</span>
+    <span class="p">{</span><span class="s">"Marie"</span><span class="p">,</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span><span class="s">"Cappuccino"</span><span class="p">,</span> <span class="s">"Sucre brun"</span><span class="p">,</span> <span class="s">"Lait d'avoine"</span><span class="p">}},</span>
+    <span class="p">{</span><span class="s">"Paul"</span><span class="p">,</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span><span class="s">"Espresso"</span><span class="p">,</span> <span class="s">"Sans sucre"</span><span class="p">,</span> <span class="s">"Double dose"</span><span class="p">}},</span>
+    <span class="p">{</span><span class="s">"Julie"</span><span class="p">,</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span><span class="s">"Latte"</span><span class="p">,</span> <span class="s">"Vanille"</span><span class="p">,</span> <span class="s">"Lait écrémé"</span><span class="p">}},</span>
+    <span class="p">{</span><span class="s">"Tom"</span><span class="p">,</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span><span class="s">"Americano"</span><span class="p">,</span> <span class="s">"Miel"</span><span class="p">,</span> <span class="s">"Grande taille"</span><span class="p">}}</span>
+<span class="p">};</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"💡 === PRÉFÉRENCES CLIENTS ==="</span><span class="p">);</span>
+
+<span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">client</span> <span class="k">in</span> <span class="n">preferencesClients</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"\n👤 </span><span class="p">{</span><span class="n">client</span><span class="p">.</span><span class="n">Key</span><span class="p">}</span><span class="s"> :"</span><span class="p">);</span>
+    <span class="k">foreach</span> <span class="p">(</span><span class="kt">string</span> <span class="n">preference</span> <span class="k">in</span> <span class="n">client</span><span class="p">.</span><span class="n">Value</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"   • </span><span class="p">{</span><span class="n">preference</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Personnaliser une commande</span>
+<span class="kt">string</span> <span class="n">clientActuel</span> <span class="p">=</span> <span class="s">"Marie"</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">preferencesClients</span><span class="p">.</span><span class="nf">ContainsKey</span><span class="p">(</span><span class="n">clientActuel</span><span class="p">))</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"\n☕ Préparation personnalisée pour </span><span class="p">{</span><span class="n">clientActuel</span><span class="p">}</span><span class="s"> :"</span><span class="p">);</span>
+    <span class="k">foreach</span> <span class="p">(</span><span class="kt">string</span> <span class="n">pref</span> <span class="k">in</span> <span class="n">preferencesClients</span><span class="p">[</span><span class="n">clientActuel</span><span class="p">])</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"✓ </span><span class="p">{</span><span class="n">pref</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="5-les-hashset--collections-uniques">5. Les HashSet : Collections uniques</h2>
+
+<p>Un HashSet ne contient pas de doublons. Parfait pour les listes d’allergènes ou d’ingrédients !</p>
+
+<h3 id="exemple--gestion-des-allergènes">Exemple : Gestion des allergènes</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">HashSet</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">allergenesPresents</span> <span class="p">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;();</span>
+
+<span class="c1">// Ajouter des allergènes</span>
+<span class="n">allergenesPresents</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"Lait"</span><span class="p">);</span>
+<span class="n">allergenesPresents</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"Gluten"</span><span class="p">);</span>
+<span class="n">allergenesPresents</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"Fruits à coque"</span><span class="p">);</span>
+<span class="n">allergenesPresents</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"Lait"</span><span class="p">);</span> <span class="c1">// Sera ignoré (doublon)</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"⚠️ === ALLERGÈNES PRÉSENTS ==="</span><span class="p">);</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="kt">string</span> <span class="n">allergene</span> <span class="k">in</span> <span class="n">allergenesPresents</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"- </span><span class="p">{</span><span class="n">allergene</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"\nNombre d'allergènes différents : </span><span class="p">{</span><span class="n">allergenesPresents</span><span class="p">.</span><span class="n">Count</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+
+<span class="c1">// Vérifier la présence d'un allergène</span>
+<span class="kt">string</span> <span class="n">allergeneTest</span> <span class="p">=</span> <span class="s">"Lait"</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">allergenesPresents</span><span class="p">.</span><span class="nf">Contains</span><span class="p">(</span><span class="n">allergeneTest</span><span class="p">))</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"\n⚠️ Attention : Produits contenant du </span><span class="p">{</span><span class="n">allergeneTest</span><span class="p">}</span><span class="s"> !"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="6-linq--requêtes-sur-les-collections">6. LINQ : Requêtes sur les collections</h2>
+
+<p>LINQ (Language Integrated Query) permet de faire des requêtes sophistiquées sur les collections.</p>
+
+<h3 id="exemple--analyses-de-ventes">Exemple : Analyses de ventes</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System.Linq</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Vente</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">Produit</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="kt">double</span> <span class="n">Prix</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="n">DateTime</span> <span class="n">Date</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">Client</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">List</span><span class="p">&lt;</span><span class="n">Vente</span><span class="p">&gt;</span> <span class="n">ventesJour</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Vente</span><span class="p">&gt;</span>
+<span class="p">{</span>
+    <span class="k">new</span> <span class="n">Vente</span> <span class="p">{</span> <span class="n">Produit</span> <span class="p">=</span> <span class="s">"Cappuccino"</span><span class="p">,</span> <span class="n">Prix</span> <span class="p">=</span> <span class="m">4.00</span><span class="p">,</span> <span class="n">Date</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="n">Today</span><span class="p">.</span><span class="nf">AddHours</span><span class="p">(</span><span class="m">8</span><span class="p">),</span> <span class="n">Client</span> <span class="p">=</span> <span class="s">"Marie"</span> <span class="p">},</span>
+    <span class="k">new</span> <span class="n">Vente</span> <span class="p">{</span> <span class="n">Produit</span> <span class="p">=</span> <span class="s">"Espresso"</span><span class="p">,</span> <span class="n">Prix</span> <span class="p">=</span> <span class="m">2.50</span><span class="p">,</span> <span class="n">Date</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="n">Today</span><span class="p">.</span><span class="nf">AddHours</span><span class="p">(</span><span class="m">9</span><span class="p">),</span> <span class="n">Client</span> <span class="p">=</span> <span class="s">"Paul"</span> <span class="p">},</span>
+    <span class="k">new</span> <span class="n">Vente</span> <span class="p">{</span> <span class="n">Produit</span> <span class="p">=</span> <span class="s">"Latte"</span><span class="p">,</span> <span class="n">Prix</span> <span class="p">=</span> <span class="m">4.50</span><span class="p">,</span> <span class="n">Date</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="n">Today</span><span class="p">.</span><span class="nf">AddHours</span><span class="p">(</span><span class="m">10</span><span class="p">),</span> <span class="n">Client</span> <span class="p">=</span> <span class="s">"Julie"</span> <span class="p">},</span>
+    <span class="k">new</span> <span class="n">Vente</span> <span class="p">{</span> <span class="n">Produit</span> <span class="p">=</span> <span class="s">"Cappuccino"</span><span class="p">,</span> <span class="n">Prix</span> <span class="p">=</span> <span class="m">4.00</span><span class="p">,</span> <span class="n">Date</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="n">Today</span><span class="p">.</span><span class="nf">AddHours</span><span class="p">(</span><span class="m">11</span><span class="p">),</span> <span class="n">Client</span> <span class="p">=</span> <span class="s">"Tom"</span> <span class="p">},</span>
+    <span class="k">new</span> <span class="n">Vente</span> <span class="p">{</span> <span class="n">Produit</span> <span class="p">=</span> <span class="s">"Americano"</span><span class="p">,</span> <span class="n">Prix</span> <span class="p">=</span> <span class="m">3.00</span><span class="p">,</span> <span class="n">Date</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="n">Today</span><span class="p">.</span><span class="nf">AddHours</span><span class="p">(</span><span class="m">12</span><span class="p">),</span> <span class="n">Client</span> <span class="p">=</span> <span class="s">"Emma"</span> <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// Ventes de plus de 3€</span>
+<span class="kt">var</span> <span class="n">ventesCheres</span> <span class="p">=</span> <span class="n">ventesJour</span><span class="p">.</span><span class="nf">Where</span><span class="p">(</span><span class="n">v</span> <span class="p">=&gt;</span> <span class="n">v</span><span class="p">.</span><span class="n">Prix</span> <span class="p">&gt;</span> <span class="m">3.00</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"💰 === VENTES &gt; 3€ ==="</span><span class="p">);</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">vente</span> <span class="k">in</span> <span class="n">ventesCheres</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">vente</span><span class="p">.</span><span class="n">Produit</span><span class="p">}</span><span class="s"> - </span><span class="p">{</span><span class="n">vente</span><span class="p">.</span><span class="n">Prix</span><span class="p">:</span><span class="n">C2</span><span class="p">}</span><span class="s"> (</span><span class="p">{</span><span class="n">vente</span><span class="p">.</span><span class="n">Client</span><span class="p">}</span><span class="s">)"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Ventes groupées par produit</span>
+<span class="kt">var</span> <span class="n">ventesParProduit</span> <span class="p">=</span> <span class="n">ventesJour</span><span class="p">.</span><span class="nf">GroupBy</span><span class="p">(</span><span class="n">v</span> <span class="p">=&gt;</span> <span class="n">v</span><span class="p">.</span><span class="n">Produit</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"\n📊 === VENTES PAR PRODUIT ==="</span><span class="p">);</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">groupe</span> <span class="k">in</span> <span class="n">ventesParProduit</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">quantite</span> <span class="p">=</span> <span class="n">groupe</span><span class="p">.</span><span class="nf">Count</span><span class="p">();</span>
+    <span class="kt">double</span> <span class="n">total</span> <span class="p">=</span> <span class="n">groupe</span><span class="p">.</span><span class="nf">Sum</span><span class="p">(</span><span class="n">v</span> <span class="p">=&gt;</span> <span class="n">v</span><span class="p">.</span><span class="n">Prix</span><span class="p">);</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">groupe</span><span class="p">.</span><span class="n">Key</span><span class="p">}</span><span class="s"> : </span><span class="p">{</span><span class="n">quantite</span><span class="p">}</span><span class="s"> unités, </span><span class="p">{</span><span class="n">total</span><span class="p">:</span><span class="n">C2</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Chiffre d'affaires total</span>
+<span class="kt">double</span> <span class="n">totalJournee</span> <span class="p">=</span> <span class="n">ventesJour</span><span class="p">.</span><span class="nf">Sum</span><span class="p">(</span><span class="n">v</span> <span class="p">=&gt;</span> <span class="n">v</span><span class="p">.</span><span class="n">Prix</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"\n💰 Total journée : </span><span class="p">{</span><span class="n">totalJournee</span><span class="p">:</span><span class="n">C2</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+
+<span class="c1">// Produit le plus vendu</span>
+<span class="kt">var</span> <span class="n">produitPopulaire</span> <span class="p">=</span> <span class="n">ventesJour</span><span class="p">.</span><span class="nf">GroupBy</span><span class="p">(</span><span class="n">v</span> <span class="p">=&gt;</span> <span class="n">v</span><span class="p">.</span><span class="n">Produit</span><span class="p">)</span>
+                                <span class="p">.</span><span class="nf">OrderByDescending</span><span class="p">(</span><span class="n">g</span> <span class="p">=&gt;</span> <span class="n">g</span><span class="p">.</span><span class="nf">Count</span><span class="p">())</span>
+                                <span class="p">.</span><span class="nf">First</span><span class="p">();</span>
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"🏆 Produit populaire : </span><span class="p">{</span><span class="n">produitPopulaire</span><span class="p">.</span><span class="n">Key</span><span class="p">}</span><span class="s"> (</span><span class="p">{</span><span class="n">produitPopulaire</span><span class="p">.</span><span class="nf">Count</span><span class="p">()}</span><span class="s"> ventes)"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="7-exemple-complet--système-de-gestion-de-café">7. Exemple complet : Système de gestion de café</h2>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Linq</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Produit</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">Nom</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="kt">double</span> <span class="n">Prix</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="kt">int</span> <span class="n">Stock</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">Ingredients</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">Commande</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">Client</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">Produits</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="n">DateTime</span> <span class="n">Heure</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="kt">double</span> <span class="n">Total</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">GestionCafe</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="n">Produit</span><span class="p">&gt;</span> <span class="n">catalogue</span><span class="p">;</span>
+    <span class="k">private</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Commande</span><span class="p">&gt;</span> <span class="n">commandesJour</span><span class="p">;</span>
+    <span class="k">private</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">clientsVIP</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="nf">GestionCafe</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nf">InitialiserCatalogue</span><span class="p">();</span>
+        <span class="n">commandesJour</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Commande</span><span class="p">&gt;();</span>
+        <span class="n">clientsVIP</span> <span class="p">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span><span class="s">"Marie"</span><span class="p">,</span> <span class="s">"Paul"</span><span class="p">,</span> <span class="s">"Julie"</span><span class="p">};</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">void</span> <span class="nf">InitialiserCatalogue</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">catalogue</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="n">Produit</span><span class="p">&gt;</span>
+        <span class="p">{</span>
+            <span class="p">[</span><span class="s">"Espresso"</span><span class="p">]</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Produit</span> 
+            <span class="p">{</span> 
+                <span class="n">Nom</span> <span class="p">=</span> <span class="s">"Espresso"</span><span class="p">,</span> 
+                <span class="n">Prix</span> <span class="p">=</span> <span class="m">2.50</span><span class="p">,</span> 
+                <span class="n">Stock</span> <span class="p">=</span> <span class="m">50</span><span class="p">,</span>
+                <span class="n">Ingredients</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span><span class="s">"Café arabica"</span><span class="p">,</span> <span class="s">"Eau"</span><span class="p">}</span>
+            <span class="p">},</span>
+            <span class="p">[</span><span class="s">"Cappuccino"</span><span class="p">]</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Produit</span> 
+            <span class="p">{</span> 
+                <span class="n">Nom</span> <span class="p">=</span> <span class="s">"Cappuccino"</span><span class="p">,</span> 
+                <span class="n">Prix</span> <span class="p">=</span> <span class="m">4.00</span><span class="p">,</span> 
+                <span class="n">Stock</span> <span class="p">=</span> <span class="m">35</span><span class="p">,</span>
+                <span class="n">Ingredients</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span><span class="s">"Café arabica"</span><span class="p">,</span> <span class="s">"Lait"</span><span class="p">,</span> <span class="s">"Mousse de lait"</span><span class="p">}</span>
+            <span class="p">},</span>
+            <span class="p">[</span><span class="s">"Latte"</span><span class="p">]</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Produit</span> 
+            <span class="p">{</span> 
+                <span class="n">Nom</span> <span class="p">=</span> <span class="s">"Latte"</span><span class="p">,</span> 
+                <span class="n">Prix</span> <span class="p">=</span> <span class="m">4.50</span><span class="p">,</span> 
+                <span class="n">Stock</span> <span class="p">=</span> <span class="m">28</span><span class="p">,</span>
+                <span class="n">Ingredients</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span><span class="s">"Café arabica"</span><span class="p">,</span> <span class="s">"Lait"</span><span class="p">,</span> <span class="s">"Mousse légère"</span><span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">};</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">AfficherCatalogue</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"☕ === CATALOGUE ==="</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Produit      | Prix   | Stock | Ingrédients"</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"-------------|--------|-------|------------------"</span><span class="p">);</span>
+        
+        <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">item</span> <span class="k">in</span> <span class="n">catalogue</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="kt">var</span> <span class="n">produit</span> <span class="p">=</span> <span class="n">item</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>
+            <span class="kt">string</span> <span class="n">ingredients</span> <span class="p">=</span> <span class="kt">string</span><span class="p">.</span><span class="nf">Join</span><span class="p">(</span><span class="s">", "</span><span class="p">,</span> <span class="n">produit</span><span class="p">.</span><span class="n">Ingredients</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">produit</span><span class="p">.</span><span class="n">Nom</span><span class="p">,-</span><span class="m">12</span><span class="p">}</span><span class="s"> | </span><span class="p">{</span><span class="n">produit</span><span class="p">.</span><span class="n">Prix</span><span class="p">,</span><span class="m">6</span><span class="p">:</span><span class="n">C2</span><span class="p">}</span><span class="s"> | </span><span class="p">{</span><span class="n">produit</span><span class="p">.</span><span class="n">Stock</span><span class="p">,</span><span class="m">5</span><span class="p">}</span><span class="s"> | </span><span class="p">{</span><span class="n">ingredients</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="kt">bool</span> <span class="nf">PasserCommande</span><span class="p">(</span><span class="kt">string</span> <span class="n">client</span><span class="p">,</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">produitsCommandes</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Vérifier la disponibilité</span>
+        <span class="k">foreach</span> <span class="p">(</span><span class="kt">string</span> <span class="n">produitNom</span> <span class="k">in</span> <span class="n">produitsCommandes</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(!</span><span class="n">catalogue</span><span class="p">.</span><span class="nf">ContainsKey</span><span class="p">(</span><span class="n">produitNom</span><span class="p">)</span> <span class="p">||</span> <span class="n">catalogue</span><span class="p">[</span><span class="n">produitNom</span><span class="p">].</span><span class="n">Stock</span> <span class="p">&lt;=</span> <span class="m">0</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"❌ </span><span class="p">{</span><span class="n">produitNom</span><span class="p">}</span><span class="s"> non disponible"</span><span class="p">);</span>
+                <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Calculer le total</span>
+        <span class="kt">double</span> <span class="n">total</span> <span class="p">=</span> <span class="n">produitsCommandes</span><span class="p">.</span><span class="nf">Sum</span><span class="p">(</span><span class="n">p</span> <span class="p">=&gt;</span> <span class="n">catalogue</span><span class="p">[</span><span class="n">p</span><span class="p">].</span><span class="n">Prix</span><span class="p">);</span>
+        
+        <span class="c1">// Remise VIP</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">clientsVIP</span><span class="p">.</span><span class="nf">Contains</span><span class="p">(</span><span class="n">client</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="n">total</span> <span class="p">*=</span> <span class="m">0.9</span><span class="p">;</span> <span class="c1">// 10% de remise</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"🌟 Remise VIP appliquée pour </span><span class="p">{</span><span class="n">client</span><span class="p">}</span><span class="s"> !"</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Créer la commande</span>
+        <span class="kt">var</span> <span class="n">commande</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Commande</span>
+        <span class="p">{</span>
+            <span class="n">Client</span> <span class="p">=</span> <span class="n">client</span><span class="p">,</span>
+            <span class="n">Produits</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;(</span><span class="n">produitsCommandes</span><span class="p">),</span>
+            <span class="n">Heure</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">,</span>
+            <span class="n">Total</span> <span class="p">=</span> <span class="n">total</span>
+        <span class="p">};</span>
+
+        <span class="c1">// Décrémenter le stock</span>
+        <span class="k">foreach</span> <span class="p">(</span><span class="kt">string</span> <span class="n">produitNom</span> <span class="k">in</span> <span class="n">produitsCommandes</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">catalogue</span><span class="p">[</span><span class="n">produitNom</span><span class="p">].</span><span class="n">Stock</span><span class="p">--;</span>
+        <span class="p">}</span>
+
+        <span class="n">commandesJour</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">commande</span><span class="p">);</span>
+        
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"✅ Commande enregistrée pour </span><span class="p">{</span><span class="n">client</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"   Produits : </span><span class="p">{</span><span class="kt">string</span><span class="p">.</span><span class="nf">Join</span><span class="p">(</span><span class="s">", "</span><span class="p">,</span> <span class="n">produitsCommandes</span><span class="p">)}</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"   Total : </span><span class="p">{</span><span class="n">total</span><span class="p">:</span><span class="n">C2</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+        
+        <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">AfficherStatistiques</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"\n📊 === STATISTIQUES DU JOUR ==="</span><span class="p">);</span>
+        
+        <span class="k">if</span> <span class="p">(</span><span class="n">commandesJour</span><span class="p">.</span><span class="n">Count</span> <span class="p">==</span> <span class="m">0</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Aucune commande aujourd'hui."</span><span class="p">);</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Chiffre d'affaires</span>
+        <span class="kt">double</span> <span class="n">ca</span> <span class="p">=</span> <span class="n">commandesJour</span><span class="p">.</span><span class="nf">Sum</span><span class="p">(</span><span class="n">c</span> <span class="p">=&gt;</span> <span class="n">c</span><span class="p">.</span><span class="n">Total</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"💰 Chiffre d'affaires : </span><span class="p">{</span><span class="n">ca</span><span class="p">:</span><span class="n">C2</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+        
+        <span class="c1">// Nombre de commandes</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"📋 Nombre de commandes : </span><span class="p">{</span><span class="n">commandesJour</span><span class="p">.</span><span class="n">Count</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+        
+        <span class="c1">// Produits les plus vendus</span>
+        <span class="kt">var</span> <span class="n">produitsVendus</span> <span class="p">=</span> <span class="n">commandesJour</span><span class="p">.</span><span class="nf">SelectMany</span><span class="p">(</span><span class="n">c</span> <span class="p">=&gt;</span> <span class="n">c</span><span class="p">.</span><span class="n">Produits</span><span class="p">)</span>
+                                         <span class="p">.</span><span class="nf">GroupBy</span><span class="p">(</span><span class="n">p</span> <span class="p">=&gt;</span> <span class="n">p</span><span class="p">)</span>
+                                         <span class="p">.</span><span class="nf">OrderByDescending</span><span class="p">(</span><span class="n">g</span> <span class="p">=&gt;</span> <span class="n">g</span><span class="p">.</span><span class="nf">Count</span><span class="p">());</span>
+        
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"\n🏆 Top des ventes :"</span><span class="p">);</span>
+        <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">groupe</span> <span class="k">in</span> <span class="n">produitsVendus</span><span class="p">.</span><span class="nf">Take</span><span class="p">(</span><span class="m">3</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"   </span><span class="p">{</span><span class="n">groupe</span><span class="p">.</span><span class="n">Key</span><span class="p">}</span><span class="s"> : </span><span class="p">{</span><span class="n">groupe</span><span class="p">.</span><span class="nf">Count</span><span class="p">()}</span><span class="s"> unités"</span><span class="p">);</span>
+        <span class="p">}</span>
+        
+        <span class="c1">// Clients les plus actifs</span>
+        <span class="kt">var</span> <span class="n">clientsActifs</span> <span class="p">=</span> <span class="n">commandesJour</span><span class="p">.</span><span class="nf">GroupBy</span><span class="p">(</span><span class="n">c</span> <span class="p">=&gt;</span> <span class="n">c</span><span class="p">.</span><span class="n">Client</span><span class="p">)</span>
+                                       <span class="p">.</span><span class="nf">OrderByDescending</span><span class="p">(</span><span class="n">g</span> <span class="p">=&gt;</span> <span class="n">g</span><span class="p">.</span><span class="nf">Count</span><span class="p">());</span>
+        
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"\n👥 Clients les plus actifs :"</span><span class="p">);</span>
+        <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">groupe</span> <span class="k">in</span> <span class="n">clientsActifs</span><span class="p">.</span><span class="nf">Take</span><span class="p">(</span><span class="m">3</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"   </span><span class="p">{</span><span class="n">groupe</span><span class="p">.</span><span class="n">Key</span><span class="p">}</span><span class="s"> : </span><span class="p">{</span><span class="n">groupe</span><span class="p">.</span><span class="nf">Count</span><span class="p">()}</span><span class="s"> commandes"</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">GestionCafe</span> <span class="n">cafe</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">GestionCafe</span><span class="p">();</span>
+        
+        <span class="c1">// Afficher le catalogue</span>
+        <span class="n">cafe</span><span class="p">.</span><span class="nf">AfficherCatalogue</span><span class="p">();</span>
+        
+        <span class="c1">// Passer quelques commandes</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"\n🔄 === SIMULATION DE COMMANDES ==="</span><span class="p">);</span>
+        
+        <span class="n">cafe</span><span class="p">.</span><span class="nf">PasserCommande</span><span class="p">(</span><span class="s">"Marie"</span><span class="p">,</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span><span class="s">"Cappuccino"</span><span class="p">,</span> <span class="s">"Espresso"</span><span class="p">});</span>
+        <span class="n">cafe</span><span class="p">.</span><span class="nf">PasserCommande</span><span class="p">(</span><span class="s">"Paul"</span><span class="p">,</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span><span class="s">"Latte"</span><span class="p">});</span>
+        <span class="n">cafe</span><span class="p">.</span><span class="nf">PasserCommande</span><span class="p">(</span><span class="s">"Julie"</span><span class="p">,</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span><span class="s">"Cappuccino"</span><span class="p">});</span>
+        <span class="n">cafe</span><span class="p">.</span><span class="nf">PasserCommande</span><span class="p">(</span><span class="s">"Tom"</span><span class="p">,</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="p">{</span><span class="s">"Espresso"</span><span class="p">,</span> <span class="s">"Espresso"</span><span class="p">});</span>
+        
+        <span class="c1">// Afficher les statistiques</span>
+        <span class="n">cafe</span><span class="p">.</span><span class="nf">AfficherStatistiques</span><span class="p">();</span>
+        
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"\n📦 === STOCK RESTANT ==="</span><span class="p">);</span>
+        <span class="n">cafe</span><span class="p">.</span><span class="nf">AfficherCatalogue</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="8-bonnes-pratiques-et-performance">8. Bonnes pratiques et performance</h2>
+
+<h3 id="-choisir-la-bonne-collection">✅ Choisir la bonne collection</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// ✅ Tableau pour taille fixe connue</span>
+<span class="kt">string</span><span class="p">[]</span> <span class="n">joursSemaine</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">string</span><span class="p">[</span><span class="m">7</span><span class="p">];</span>
+
+<span class="c1">// ✅ List&lt;T&gt; pour taille variable</span>
+<span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">commandesDuJour</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;();</span>
+
+<span class="c1">// ✅ Dictionary&lt;K,V&gt; pour recherche rapide par clé</span>
+<span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">double</span><span class="p">&gt;</span> <span class="n">prix</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">double</span><span class="p">&gt;();</span>
+
+<span class="c1">// ✅ HashSet&lt;T&gt; pour unicité</span>
+<span class="n">HashSet</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">allergenesPresents</span> <span class="p">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;();</span>
+</code></pre></div></div>
+
+<h3 id="-initialiser-avec-la-bonne-capacité">✅ Initialiser avec la bonne capacité</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// ❌ La liste va grandir 100 fois</span>
+<span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">commandes</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;();</span>
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="m">100</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+<span class="p">{</span>
+    <span class="n">commandes</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">$"Commande </span><span class="p">{</span><span class="n">i</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// ✅ Meilleure performance</span>
+<span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">commandes</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;(</span><span class="m">100</span><span class="p">);</span> <span class="c1">// Capacité initiale</span>
+</code></pre></div></div>
+
+<h3 id="-utiliser-linq-avec-modération">✅ Utiliser LINQ avec modération</h3>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// ✅ Simple et lisible</span>
+<span class="kt">var</span> <span class="n">ventesCheres</span> <span class="p">=</span> <span class="n">ventes</span><span class="p">.</span><span class="nf">Where</span><span class="p">(</span><span class="n">v</span> <span class="p">=&gt;</span> <span class="n">v</span><span class="p">.</span><span class="n">Prix</span> <span class="p">&gt;</span> <span class="m">5.00</span><span class="p">).</span><span class="nf">ToList</span><span class="p">();</span>
+
+<span class="c1">// ❌ Trop complexe, difficile à déboguer</span>
+<span class="kt">var</span> <span class="n">resultat</span> <span class="p">=</span> <span class="n">ventes</span><span class="p">.</span><span class="nf">Where</span><span class="p">(</span><span class="n">v</span> <span class="p">=&gt;</span> <span class="n">v</span><span class="p">.</span><span class="n">Prix</span> <span class="p">&gt;</span> <span class="m">3</span><span class="p">)</span>
+                    <span class="p">.</span><span class="nf">GroupBy</span><span class="p">(</span><span class="n">v</span> <span class="p">=&gt;</span> <span class="n">v</span><span class="p">.</span><span class="n">Client</span><span class="p">)</span>
+                    <span class="p">.</span><span class="nf">Where</span><span class="p">(</span><span class="n">g</span> <span class="p">=&gt;</span> <span class="n">g</span><span class="p">.</span><span class="nf">Count</span><span class="p">()</span> <span class="p">&gt;</span> <span class="m">2</span><span class="p">)</span>
+                    <span class="p">.</span><span class="nf">SelectMany</span><span class="p">(</span><span class="n">g</span> <span class="p">=&gt;</span> <span class="n">g</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="n">v</span> <span class="p">=&gt;</span> <span class="n">v</span><span class="p">.</span><span class="n">Produit</span><span class="p">))</span>
+                    <span class="p">.</span><span class="nf">Distinct</span><span class="p">()</span>
+                    <span class="p">.</span><span class="nf">OrderBy</span><span class="p">(</span><span class="n">p</span> <span class="p">=&gt;</span> <span class="n">p</span><span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="exercices-pratiques">Exercices pratiques</h2>
+
+<h3 id="exercice-1--gestionnaire-de-stock">Exercice 1 : Gestionnaire de stock</h3>
+<p>Créez un système qui gère un inventaire avec alerte automatique pour les stocks faibles.</p>
+
+<h3 id="exercice-2--analyseur-de-préférences">Exercice 2 : Analyseur de préférences</h3>
+<p>Créez un programme qui analyse les préférences des clients et recommande des produits.</p>
+
+<h3 id="exercice-3--planificateur-de-tournées">Exercice 3 : Planificateur de tournées</h3>
+<p>Créez un système qui organise les livraisons de grains selon les distances.</p>
+
+<hr />
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Les collections sont les <strong>outils d’organisation</strong> de la programmation ! Elles nous permettent de :</p>
+
+<ul>
+  <li>✅ <strong>Stocker des données structurées</strong> avec les tableaux</li>
+  <li>✅ <strong>Gérer des listes dynamiques</strong> avec <code class="language-plaintext highlighter-rouge">List&lt;T&gt;</code></li>
+  <li>✅ <strong>Associer des informations</strong> avec <code class="language-plaintext highlighter-rouge">Dictionary&lt;K,V&gt;</code></li>
+  <li>✅ <strong>Garantir l’unicité</strong> avec <code class="language-plaintext highlighter-rouge">HashSet&lt;T&gt;</code></li>
+  <li>✅ <strong>Analyser les données</strong> avec LINQ</li>
+</ul>
+
+<p>Comme un café bien organisé où chaque produit a sa place, les collections nous aident à structurer nos programmes efficacement !</p>
+
+<p><strong>Prochaine étape :</strong> Nous découvrirons la gestion des exceptions pour traiter les erreurs avec élégance ! ☕</p>
+
+<hr />
+
+<p><em>Expérimentez avec ces collections et créez vos propres systèmes de gestion. Un bon développeur, c’est comme un bon gestionnaire de café : il sait organiser ses données ! 🚀</em></p>
+
+  </div><a class="u-url" href="/2025/01/29/collections-tableaux.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Le dev, c&#39;est dièse</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">MattDevBzh</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Veille, tutoriels .NET, Azure et plus</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

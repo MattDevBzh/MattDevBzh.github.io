@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Les variables et types de données : les bases de la programmation | Le dev, c’est dièse</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Les variables et types de données : les bases de la programmation" />
+<meta name="author" content="MattDevBzh" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Les variables sont les fondations de tout programme informatique. Imaginez-les comme des tasses étiquetées dans votre café préféré : chacune peut contenir quelque chose de différent, et l’étiquette vous dit ce qu’elle contient !" />
+<meta property="og:description" content="Les variables sont les fondations de tout programme informatique. Imaginez-les comme des tasses étiquetées dans votre café préféré : chacune peut contenir quelque chose de différent, et l’étiquette vous dit ce qu’elle contient !" />
+<link rel="canonical" href="http://0.0.0.0:4000/2025/01/18/variables-et-types-donnees.html" />
+<meta property="og:url" content="http://0.0.0.0:4000/2025/01/18/variables-et-types-donnees.html" />
+<meta property="og:site_name" content="Le dev, c’est dièse" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-01-18T00:00:00+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Les variables et types de données : les bases de la programmation" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MattDevBzh"},"dateModified":"2025-01-18T00:00:00+00:00","datePublished":"2025-01-18T00:00:00+00:00","description":"Les variables sont les fondations de tout programme informatique. Imaginez-les comme des tasses étiquetées dans votre café préféré : chacune peut contenir quelque chose de différent, et l’étiquette vous dit ce qu’elle contient !","headline":"Les variables et types de données : les bases de la programmation","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/2025/01/18/variables-et-types-donnees.html"},"url":"http://0.0.0.0:4000/2025/01/18/variables-et-types-donnees.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://0.0.0.0:4000/feed.xml" title="Le dev, c&apos;est dièse" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Le dev, c&#39;est dièse</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/">Bienvenue sur mon blog tech</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Les variables et types de données : les bases de la programmation</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2025-01-18T00:00:00+00:00" itemprop="datePublished">Jan 18, 2025
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p><strong>Les variables</strong> sont les fondations de tout programme informatique. Imaginez-les comme des tasses étiquetées dans votre café préféré : chacune peut contenir quelque chose de différent, et l’étiquette vous dit ce qu’elle contient !</p>
+
+<p>Dans cet article, nous allons découvrir ensemble les concepts fondamentaux des variables et types de données à travers l’univers familier du café. ☕</p>
+
+<h2 id="sommaire">Sommaire</h2>
+<ul id="markdown-toc">
+  <li><a href="#sommaire" id="markdown-toc-sommaire">Sommaire</a></li>
+  <li><a href="#quest-ce-quune-variable-" id="markdown-toc-quest-ce-quune-variable-">Qu’est-ce qu’une variable ?</a></li>
+  <li><a href="#les-types-de-données-fondamentaux" id="markdown-toc-les-types-de-données-fondamentaux">Les types de données fondamentaux</a>    <ul>
+      <li><a href="#-les-chaînes-de-caractères-string" id="markdown-toc--les-chaînes-de-caractères-string">🔤 Les chaînes de caractères (String)</a></li>
+      <li><a href="#-les-nombres-number" id="markdown-toc--les-nombres-number">🔢 Les nombres (Number)</a></li>
+      <li><a href="#-les-booléens-boolean" id="markdown-toc--les-booléens-boolean">✅ Les booléens (Boolean)</a></li>
+    </ul>
+  </li>
+  <li><a href="#bonnes-pratiques-pour-nommer-les-variables" id="markdown-toc-bonnes-pratiques-pour-nommer-les-variables">Bonnes pratiques pour nommer les variables</a>    <ul>
+      <li><a href="#-noms-explicites-et-clairs" id="markdown-toc--noms-explicites-et-clairs">✅ Noms explicites et clairs</a></li>
+      <li><a href="#-convention-camelcase" id="markdown-toc--convention-camelcase">✅ Convention camelCase</a></li>
+      <li><a href="#-noms-de-constantes-en-majuscules" id="markdown-toc--noms-de-constantes-en-majuscules">✅ Noms de constantes en MAJUSCULES</a></li>
+    </ul>
+  </li>
+  <li><a href="#exemple-pratique--système-de-commande-de-café" id="markdown-toc-exemple-pratique--système-de-commande-de-café">Exemple pratique : Système de commande de café</a></li>
+  <li><a href="#modification-et-réassignation" id="markdown-toc-modification-et-réassignation">Modification et réassignation</a></li>
+  <li><a href="#variables-vs-constantes" id="markdown-toc-variables-vs-constantes">Variables vs Constantes</a>    <ul>
+      <li><a href="#variables-let---peuvent-changer" id="markdown-toc-variables-let---peuvent-changer">Variables (<code class="language-plaintext highlighter-rouge">let</code>) - peuvent changer</a></li>
+      <li><a href="#constantes-const---ne-peuvent-pas-changer" id="markdown-toc-constantes-const---ne-peuvent-pas-changer">Constantes (<code class="language-plaintext highlighter-rouge">const</code>) - ne peuvent pas changer</a></li>
+    </ul>
+  </li>
+  <li><a href="#exercice-pratique" id="markdown-toc-exercice-pratique">Exercice pratique</a></li>
+  <li><a href="#conclusion" id="markdown-toc-conclusion">Conclusion</a></li>
+</ul>
+
+<hr />
+
+<h2 id="quest-ce-quune-variable-">Qu’est-ce qu’une variable ?</h2>
+
+<p>Une <strong>variable</strong> est un espace de stockage dans la mémoire de l’ordinateur qui porte un nom et peut contenir une valeur. C’est comme un conteneur étiqueté dans votre cuisine où vous rangez différents ingrédients.</p>
+
+<p><strong>Exemple concret :</strong></p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">nomCafe</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Espresso</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">prix</span> <span class="o">=</span> <span class="mf">2.50</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">estDisponible</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Ici, nous avons créé trois “contenants” :</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">nomCafe</code> : contient le texte “Espresso”</li>
+  <li><code class="language-plaintext highlighter-rouge">prix</code> : contient le nombre 2.50</li>
+  <li><code class="language-plaintext highlighter-rouge">estDisponible</code> : contient la valeur vraie/fausse <code class="language-plaintext highlighter-rouge">true</code></li>
+</ul>
+
+<hr />
+
+<h2 id="les-types-de-données-fondamentaux">Les types de données fondamentaux</h2>
+
+<h3 id="-les-chaînes-de-caractères-string">🔤 Les chaînes de caractères (String)</h3>
+
+<p>Les <strong>strings</strong> stockent du texte, comme le nom d’un café ou une description.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">nomClient</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Marie</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">typeCafe</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Cappuccino</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">tailleTasse</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Grande</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">description</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Un délicieux mélange arabica avec une mousse de lait onctueuse</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><strong>Utilisation pratique :</strong></p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Bonjour </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">nomClient</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">, votre </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">typeCafe</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> est prêt !</span><span class="dl">"</span><span class="p">);</span>
+<span class="c1">// Affiche : "Bonjour Marie, votre Cappuccino est prêt !"</span>
+</code></pre></div></div>
+
+<h3 id="-les-nombres-number">🔢 Les nombres (Number)</h3>
+
+<p>Les <strong>numbers</strong> stockent des valeurs numériques : prix, quantités, températures…</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">prixCafe</span> <span class="o">=</span> <span class="mf">3.20</span><span class="p">;</span>        <span class="c1">// Prix en euros</span>
+<span class="kd">let</span> <span class="nx">quantiteGrains</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span>   <span class="c1">// Grammes de café</span>
+<span class="kd">let</span> <span class="nx">temperature</span> <span class="o">=</span> <span class="mf">92.5</span><span class="p">;</span>     <span class="c1">// Température de l'eau en °C</span>
+<span class="kd">let</span> <span class="nx">nombreClients</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span>     <span class="c1">// Clients dans la file d'attente</span>
+</code></pre></div></div>
+
+<p><strong>Opérations mathématiques :</strong></p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">total</span> <span class="o">=</span> <span class="nx">prixCafe</span> <span class="o">*</span> <span class="nx">nombreClients</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">resteGrains</span> <span class="o">=</span> <span class="nx">quantiteGrains</span> <span class="o">-</span> <span class="mi">50</span><span class="p">;</span> <span class="c1">// Après une préparation</span>
+</code></pre></div></div>
+
+<h3 id="-les-booléens-boolean">✅ Les booléens (Boolean)</h3>
+
+<p>Les <strong>booleans</strong> ne peuvent avoir que deux valeurs : <code class="language-plaintext highlighter-rouge">true</code> (vrai) ou <code class="language-plaintext highlighter-rouge">false</code> (faux). Parfait pour des états on/off !</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">machineAllumee</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>      <span class="c1">// La machine à café est allumée</span>
+<span class="kd">let</span> <span class="nx">stockVide</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>          <span class="c1">// Il reste du café en stock</span>
+<span class="kd">let</span> <span class="nx">clientSatisfait</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>     <span class="c1">// Le client a aimé son café</span>
+<span class="kd">let</span> <span class="nx">fermetureMagasin</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>   <span class="c1">// Le café est encore ouvert</span>
+</code></pre></div></div>
+
+<p><strong>Utilisation dans des conditions :</strong></p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="p">(</span><span class="nx">stockVide</span> <span class="o">===</span> <span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Attention : plus de café en stock !</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="bonnes-pratiques-pour-nommer-les-variables">Bonnes pratiques pour nommer les variables</h2>
+
+<h3 id="-noms-explicites-et-clairs">✅ Noms explicites et clairs</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 👍 Bon</span>
+<span class="kd">let</span> <span class="nx">prixLatteGrand</span> <span class="o">=</span> <span class="mf">4.50</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">nombreCafesVendus</span> <span class="o">=</span> <span class="mi">25</span><span class="p">;</span>
+
+<span class="c1">// 👎 Éviter</span>
+<span class="kd">let</span> <span class="nx">p</span> <span class="o">=</span> <span class="mf">4.50</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">25</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="-convention-camelcase">✅ Convention camelCase</h3>
+<p>En JavaScript, on utilise le <strong>camelCase</strong> : première lettre minuscule, puis majuscule à chaque nouveau mot.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">temperatureEauOptimale</span> <span class="o">=</span> <span class="mi">93</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">tempsPreparationEspresso</span> <span class="o">=</span> <span class="mi">25</span><span class="p">;</span> <span class="c1">// en secondes</span>
+<span class="kd">let</span> <span class="nx">quantiteGrainsParTasse</span> <span class="o">=</span> <span class="mi">18</span><span class="p">;</span>   <span class="c1">// en grammes</span>
+</code></pre></div></div>
+
+<h3 id="-noms-de-constantes-en-majuscules">✅ Noms de constantes en MAJUSCULES</h3>
+<p>Pour les valeurs qui ne changent jamais :</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">PRIX_ESPRESSO</span> <span class="o">=</span> <span class="mf">2.50</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">TEMPERATURE_IDEALE</span> <span class="o">=</span> <span class="mi">92</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">GRAMMES_PAR_TASSE</span> <span class="o">=</span> <span class="mi">18</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="exemple-pratique--système-de-commande-de-café">Exemple pratique : Système de commande de café</h2>
+
+<p>Créons un petit système pour gérer les commandes d’un café :</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Informations sur le café</span>
+<span class="kd">const</span> <span class="nx">NOM_CAFE</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Le Grain d'Or</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">heureOuverture</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">heureFermeture</span> <span class="o">=</span> <span class="mi">19</span><span class="p">;</span>
+
+<span class="c1">// Informations produit</span>
+<span class="kd">let</span> <span class="nx">espressoDisponible</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">prixEspresso</span> <span class="o">=</span> <span class="mf">2.50</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">stockGrains</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span> <span class="c1">// en grammes</span>
+
+<span class="c1">// Commande client</span>
+<span class="kd">let</span> <span class="nx">nomClient</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Pierre</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">typeCommande</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Espresso</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">taille</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Simple</span><span class="dl">"</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">quantiteCommandee</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+<span class="c1">// Calculs</span>
+<span class="kd">let</span> <span class="nx">prixTotal</span> <span class="o">=</span> <span class="nx">prixEspresso</span> <span class="o">*</span> <span class="nx">quantiteCommandee</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">grainsNecessaires</span> <span class="o">=</span> <span class="nx">quantiteCommandee</span> <span class="o">*</span> <span class="mi">18</span><span class="p">;</span> <span class="c1">// 18g par espresso</span>
+
+<span class="c1">// Vérifications</span>
+<span class="kd">let</span> <span class="nx">assezDeStock</span> <span class="o">=</span> <span class="nx">stockGrains</span> <span class="o">&gt;=</span> <span class="nx">grainsNecessaires</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">peutPreparerCommande</span> <span class="o">=</span> <span class="nx">espressoDisponible</span> <span class="o">&amp;&amp;</span> <span class="nx">assezDeStock</span><span class="p">;</span>
+
+<span class="c1">// Affichage</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">=== </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">NOM_CAFE</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> ===</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Client : </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">nomClient</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Commande : </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">quantiteCommandee</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">typeCommande</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Prix total : </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">prixTotal</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">€</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">peutPreparerCommande</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">✅ Commande acceptée ! Préparation en cours...</span><span class="dl">"</span><span class="p">);</span>
+    <span class="nx">stockGrains</span> <span class="o">=</span> <span class="nx">stockGrains</span> <span class="o">-</span> <span class="nx">grainsNecessaires</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Stock restant : </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">stockGrains</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">g</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">❌ Désolé, impossible de préparer cette commande.</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="modification-et-réassignation">Modification et réassignation</h2>
+
+<p>Les variables peuvent changer de valeur au cours du programme :</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">stockLait</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span> <span class="c1">// millilitres</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Stock initial : </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">stockLait</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">ml</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="c1">// Après la préparation d'un cappuccino</span>
+<span class="nx">stockLait</span> <span class="o">=</span> <span class="nx">stockLait</span> <span class="o">-</span> <span class="mi">150</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Après cappuccino : </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">stockLait</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">ml</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="c1">// Livraison de lait</span>
+<span class="nx">stockLait</span> <span class="o">=</span> <span class="nx">stockLait</span> <span class="o">+</span> <span class="mi">1000</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Après livraison : </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">stockLait</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">ml</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><strong>Raccourcis utiles :</strong></p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">stockLait</span> <span class="o">-=</span> <span class="mi">150</span><span class="p">;</span>  <span class="c1">// Équivaut à : stockLait = stockLait - 150</span>
+<span class="nx">stockLait</span> <span class="o">+=</span> <span class="mi">1000</span><span class="p">;</span> <span class="c1">// Équivaut à : stockLait = stockLait + 1000</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="variables-vs-constantes">Variables vs Constantes</h2>
+
+<h3 id="variables-let---peuvent-changer">Variables (<code class="language-plaintext highlighter-rouge">let</code>) - peuvent changer</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">clientsEnAttente</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="nx">clientsEnAttente</span> <span class="o">=</span> <span class="nx">clientsEnAttente</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// ✅ Possible</span>
+</code></pre></div></div>
+
+<h3 id="constantes-const---ne-peuvent-pas-changer">Constantes (<code class="language-plaintext highlighter-rouge">const</code>) - ne peuvent pas changer</h3>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">PRIX_BASE_CAFE</span> <span class="o">=</span> <span class="mf">2.00</span><span class="p">;</span>
+<span class="c1">// PRIX_BASE_CAFE = 2.50; // ❌ Erreur !</span>
+</code></pre></div></div>
+
+<p><strong>Conseil :</strong> Utilisez <code class="language-plaintext highlighter-rouge">const</code> par défaut, et <code class="language-plaintext highlighter-rouge">let</code> seulement quand la valeur doit changer.</p>
+
+<hr />
+
+<h2 id="exercice-pratique">Exercice pratique</h2>
+
+<p>Essayez de créer des variables pour votre café imaginaire :</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// À vous de compléter !</span>
+<span class="kd">let</span> <span class="nx">nomVotreCafe</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span> <span class="c1">// Le nom de votre café</span>
+<span class="kd">let</span> <span class="nx">specialiteMaison</span> <span class="o">=</span> <span class="dl">""</span><span class="p">;</span> <span class="c1">// Votre spécialité</span>
+<span class="kd">let</span> <span class="nx">prixSpecialite</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// Prix de votre spécialité</span>
+<span class="kd">let</span> <span class="nx">ouvertAujourdHui</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span> <span class="c1">// Ouvert ou fermé ?</span>
+
+<span class="c1">// Calculez le prix pour 3 spécialités</span>
+<span class="kd">let</span> <span class="nx">prixTroisSpecialites</span> <span class="o">=</span> <span class="nx">prixSpecialite</span> <span class="o">*</span> <span class="mi">3</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Bienvenue chez </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">nomVotreCafe</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> !</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Notre spécialité : </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">specialiteMaison</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> (</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">prixSpecialite</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">€)</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Prix pour 3 : </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">prixTroisSpecialites</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">€</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Les variables et types de données sont comme les ingrédients de base d’une recette de café :</p>
+
+<ul>
+  <li><strong>Les strings</strong> pour les noms et descriptions 📝</li>
+  <li><strong>Les numbers</strong> pour les quantités et prix 🔢</li>
+  <li><strong>Les booleans</strong> pour les états et conditions ✅</li>
+</ul>
+
+<p>Maîtriser ces concepts vous donnera les bases solides pour construire vos premiers programmes. Comme un bon barista qui connaît ses grains, un développeur qui maîtrise ses variables peut créer des applications extraordinaires !</p>
+
+<p><strong>Prochaine étape :</strong> Dans le prochain article, nous découvrirons les fonctions - les “recettes” qui utilisent nos ingrédients (variables) pour créer quelque chose de délicieux ! ☕</p>
+
+<hr />
+
+<p><em>N’hésitez pas à expérimenter avec ces exemples et à créer vos propres variables sur le thème du café. L’apprentissage de la programmation, c’est comme apprendre à faire un bon café : il faut pratiquer ! 🚀</em></p>
+
+  </div><a class="u-url" href="/2025/01/18/variables-et-types-donnees.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Le dev, c&#39;est dièse</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">MattDevBzh</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Veille, tutoriels .NET, Azure et plus</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

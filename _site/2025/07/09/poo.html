@@ -1,0 +1,356 @@
+<h1 id="apprendre-la-poo-en-net">Apprendre la POO en .NET</h1>
+
+<p>Vous buvez du café tous les jours ? Parfait ! Nous allons apprendre la Programmation Orientée Objet (POO) en .NET en créant notre propre café virtuel. Pas de panique, nous commençons par les bases !</p>
+
+<hr />
+
+<h2 id="1-une-classe--une-recette">1. Une Classe = Une Recette</h2>
+
+<p>Une <strong>classe</strong> en programmation, c’est comme une recette de cuisine. Elle décrit comment créer quelque chose.</p>
+
+<h3 id="notre-première-classe--un-grain-de-café">Notre première classe : Un grain de café</h3>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">GrainCafe</span>
+<span class="p">{</span>
+    <span class="c1">// Les propriétés = les ingrédients de notre recette</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">Origine</span><span class="p">;</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">Variete</span><span class="p">;</span>
+    <span class="k">public</span> <span class="kt">bool</span> <span class="n">EstMoulu</span><span class="p">;</span>
+    
+    <span class="c1">// Le constructeur = comment préparer notre grain</span>
+    <span class="k">public</span> <span class="nf">GrainCafe</span><span class="p">(</span><span class="kt">string</span> <span class="n">origine</span><span class="p">,</span> <span class="kt">string</span> <span class="n">variete</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Origine</span> <span class="p">=</span> <span class="n">origine</span><span class="p">;</span>
+        <span class="n">Variete</span> <span class="p">=</span> <span class="n">variete</span><span class="p">;</span>
+        <span class="n">EstMoulu</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span> <span class="c1">// Au début, le grain n'est pas moulu</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// Une méthode = une action que peut faire à partir de notre grain</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">Moudre</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">EstMoulu</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Le grain </span><span class="p">{</span><span class="n">Variete</span><span class="p">}</span><span class="s"> de </span><span class="p">{</span><span class="n">Origine</span><span class="p">}</span><span class="s"> est maintenant moulu !"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="utiliser-notre-classe">Utiliser notre classe</h3>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Créer un grain de café (on crée un "objet")</span>
+<span class="n">GrainCafe</span> <span class="n">monGrain</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">GrainCafe</span><span class="p">(</span><span class="s">"Colombie"</span><span class="p">,</span> <span class="s">"Arabica"</span><span class="p">);</span>
+
+<span class="c1">// Utiliser notre grain</span>
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"J'ai un grain </span><span class="p">{</span><span class="n">monGrain</span><span class="p">.</span><span class="n">Variete</span><span class="p">}</span><span class="s"> de </span><span class="p">{</span><span class="n">monGrain</span><span class="p">.</span><span class="n">Origine</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+<span class="n">monGrain</span><span class="p">.</span><span class="nf">Moudre</span><span class="p">();</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="2-lencapsulation--protéger-et-contrôler-laccès">2. L’Encapsulation = Protéger et Contrôler l’Accès</h2>
+
+<p><strong>L’encapsulation, c’est quoi ?</strong><br />
+C’est le fait de décider qui peut voir et modifier les données de notre classe. Comme dans un café : certaines informations sont publiques (le menu), d’autres privées (la recette secrète).</p>
+
+<p><strong>Pourquoi c’est important ?</strong></p>
+<ul>
+  <li>Protéger les données importantes</li>
+  <li>Éviter qu’on casse notre objet par accident</li>
+  <li>Contrôler comment on utilise notre classe</li>
+</ul>
+
+<p><strong>En pratique :</strong></p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">public</code> = tout le monde peut voir et modifier</li>
+  <li><code class="language-plaintext highlighter-rouge">private</code> = seulement la classe elle-même peut voir et modifier</li>
+</ul>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">Cafe</span>
+<span class="p">{</span>
+    <span class="c1">// PUBLIC = visible par tous</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">Nom</span><span class="p">;</span>        <span class="c1">// ← Le client peut voir le nom</span>
+    <span class="k">public</span> <span class="kt">double</span> <span class="n">Prix</span><span class="p">;</span>       <span class="c1">// ← Le client peut voir le prix</span>
+    
+    <span class="c1">// PRIVATE = secret de la classe</span>
+    <span class="k">private</span> <span class="kt">string</span> <span class="n">recetteSecrete</span><span class="p">;</span>  <span class="c1">// ← Personne d'autre ne peut voir ça</span>
+    
+    <span class="k">public</span> <span class="nf">Cafe</span><span class="p">(</span><span class="kt">string</span> <span class="n">nom</span><span class="p">,</span> <span class="kt">double</span> <span class="n">prix</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Nom</span> <span class="p">=</span> <span class="n">nom</span><span class="p">;</span>
+        <span class="n">Prix</span> <span class="p">=</span> <span class="n">prix</span><span class="p">;</span>
+        <span class="n">recetteSecrete</span> <span class="p">=</span> <span class="s">"Ingrédient secret : amour et passion"</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// Méthode publique qui utilise la donnée privée</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">RevelertUnPeuLaRecette</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// La classe peut utiliser ses propres données privées</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"La recette contient... quelque chose de spécial 😉"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>Test rapide :</strong></p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Cafe</span> <span class="n">monCafe</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Cafe</span><span class="p">(</span><span class="s">"Espresso"</span><span class="p">,</span> <span class="m">2.50</span><span class="p">);</span>
+
+<span class="c1">// ✅ Ça marche - c'est public</span>
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">monCafe</span><span class="p">.</span><span class="n">Nom</span><span class="p">);</span>
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">monCafe</span><span class="p">.</span><span class="n">Prix</span><span class="p">);</span>
+
+<span class="c1">// ❌ Ça ne compile pas - c'est privé !</span>
+<span class="c1">// Console.WriteLine(monCafe.recetteSecrete);  // ERREUR !</span>
+
+<span class="c1">// ✅ Mais on peut utiliser la méthode publique</span>
+<span class="n">monCafe</span><span class="p">.</span><span class="nf">RevelertUnPeuLaRecette</span><span class="p">();</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="3-lhéritage--partir-dune-base">3. L’Héritage = Partir d’une Base</h2>
+
+<p>Imaginons que nous avons différents types de boissons dans notre café. Elles ont des points communs !</p>
+
+<h3 id="notre-classe-de-base">Notre classe de base</h3>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">class</span> <span class="nc">Boisson</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">Nom</span><span class="p">;</span>
+    <span class="k">public</span> <span class="kt">double</span> <span class="n">Prix</span><span class="p">;</span>
+    <span class="k">public</span> <span class="kt">bool</span> <span class="n">EstChaude</span><span class="p">;</span>
+    
+    <span class="k">public</span> <span class="nf">Boisson</span><span class="p">(</span><span class="kt">string</span> <span class="n">nom</span><span class="p">,</span> <span class="kt">double</span> <span class="n">prix</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">estChaude</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Nom</span> <span class="p">=</span> <span class="n">nom</span><span class="p">;</span>
+        <span class="n">Prix</span> <span class="p">=</span> <span class="n">prix</span><span class="p">;</span>
+        <span class="n">EstChaude</span> <span class="p">=</span> <span class="n">estChaude</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">Servir</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Voici votre </span><span class="p">{</span><span class="n">Nom</span><span class="p">}</span><span class="s"> !"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="des-classes-qui-héritent-de-boisson">Des classes qui héritent de Boisson</h3>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Cafe hérite de Boisson (Cafe "est une" Boisson)</span>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">Cafe</span> <span class="p">:</span> <span class="n">Boisson</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">bool</span> <span class="n">AvecSucre</span><span class="p">;</span>
+    
+    <span class="c1">// On utilise le constructeur de la classe parent avec "base"</span>
+    <span class="k">public</span> <span class="nf">Cafe</span><span class="p">(</span><span class="kt">string</span> <span class="n">nom</span><span class="p">,</span> <span class="kt">double</span> <span class="n">prix</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">avecSucre</span><span class="p">)</span> <span class="p">:</span> <span class="k">base</span><span class="p">(</span><span class="n">nom</span><span class="p">,</span> <span class="n">prix</span><span class="p">,</span> <span class="k">true</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">AvecSucre</span> <span class="p">=</span> <span class="n">avecSucre</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// Nouvelle méthode spécifique au café</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">AjouterSucre</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">AvecSucre</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Sucre ajouté au café !"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">The</span> <span class="p">:</span> <span class="n">Boisson</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">int</span> <span class="n">MinutesInfusion</span><span class="p">;</span>
+    
+    <span class="k">public</span> <span class="nf">The</span><span class="p">(</span><span class="kt">string</span> <span class="n">nom</span><span class="p">,</span> <span class="kt">double</span> <span class="n">prix</span><span class="p">,</span> <span class="kt">int</span> <span class="n">minutes</span><span class="p">)</span> <span class="p">:</span> <span class="k">base</span><span class="p">(</span><span class="n">nom</span><span class="p">,</span> <span class="n">prix</span><span class="p">,</span> <span class="k">true</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">MinutesInfusion</span> <span class="p">=</span> <span class="n">minutes</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">Infuser</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Le thé infuse pendant </span><span class="p">{</span><span class="n">MinutesInfusion</span><span class="p">}</span><span class="s"> minutes..."</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="utilisation">Utilisation</h3>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Créer différentes boissons</span>
+<span class="n">Cafe</span> <span class="n">espresso</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Cafe</span><span class="p">(</span><span class="s">"Espresso"</span><span class="p">,</span> <span class="m">2.50</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
+<span class="n">The</span> <span class="n">theVert</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">The</span><span class="p">(</span><span class="s">"Thé vert"</span><span class="p">,</span> <span class="m">3.00</span><span class="p">,</span> <span class="m">3</span><span class="p">);</span>
+
+<span class="c1">// Toutes peuvent être servies (méthode héritée)</span>
+<span class="n">espresso</span><span class="p">.</span><span class="nf">Servir</span><span class="p">();</span>
+<span class="n">theVert</span><span class="p">.</span><span class="nf">Servir</span><span class="p">();</span>
+
+<span class="c1">// Chacune a ses spécificités</span>
+<span class="n">espresso</span><span class="p">.</span><span class="nf">AjouterSucre</span><span class="p">();</span>
+<span class="n">theVert</span><span class="p">.</span><span class="nf">Infuser</span><span class="p">();</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="4-le-polymorphisme--même-action-résultats-différents">4. Le Polymorphisme = Même Action, Résultats Différents</h2>
+
+<p>Le polymorphisme, c’est quand on fait la même chose avec des objets différents, mais chacun réagit à sa façon.</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Améliorons notre classe Boisson</span>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">Boisson</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">Nom</span><span class="p">;</span>
+    <span class="k">public</span> <span class="kt">double</span> <span class="n">Prix</span><span class="p">;</span>
+    
+    <span class="k">public</span> <span class="nf">Boisson</span><span class="p">(</span><span class="kt">string</span> <span class="n">nom</span><span class="p">,</span> <span class="kt">double</span> <span class="n">prix</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Nom</span> <span class="p">=</span> <span class="n">nom</span><span class="p">;</span>
+        <span class="n">Prix</span> <span class="p">=</span> <span class="n">prix</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="c1">// "virtual" signifie que les classes enfants peuvent changer cette méthode</span>
+    <span class="k">public</span> <span class="k">virtual</span> <span class="k">void</span> <span class="nf">Preparer</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Préparation de </span><span class="p">{</span><span class="n">Nom</span><span class="p">}</span><span class="s">..."</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">Cafe</span> <span class="p">:</span> <span class="n">Boisson</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nf">Cafe</span><span class="p">(</span><span class="kt">string</span> <span class="n">nom</span><span class="p">,</span> <span class="kt">double</span> <span class="n">prix</span><span class="p">)</span> <span class="p">:</span> <span class="k">base</span><span class="p">(</span><span class="n">nom</span><span class="p">,</span> <span class="n">prix</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+    
+    <span class="c1">// "override" signifie qu'on change la méthode du parent</span>
+    <span class="k">public</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">Preparer</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"☕ Moudre les grains..."</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"☕ Chauffer l'eau..."</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"☕ </span><span class="p">{</span><span class="n">Nom</span><span class="p">}</span><span class="s"> prêt !"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">The</span> <span class="p">:</span> <span class="n">Boisson</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nf">The</span><span class="p">(</span><span class="kt">string</span> <span class="n">nom</span><span class="p">,</span> <span class="kt">double</span> <span class="n">prix</span><span class="p">)</span> <span class="p">:</span> <span class="k">base</span><span class="p">(</span><span class="n">nom</span><span class="p">,</span> <span class="n">prix</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+    
+    <span class="k">public</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">Preparer</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"🫖 Chauffer l'eau..."</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"🫖 Ajouter les feuilles..."</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"🫖 </span><span class="p">{</span><span class="n">Nom</span><span class="p">}</span><span class="s"> prêt !"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="la-magie-du-polymorphisme">La magie du polymorphisme</h3>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// On peut mettre différents types de boissons dans une même liste !</span>
+<span class="n">List</span><span class="p">&lt;</span><span class="n">Boisson</span><span class="p">&gt;</span> <span class="n">commande</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Boisson</span><span class="p">&gt;</span>
+<span class="p">{</span>
+    <span class="k">new</span> <span class="nf">Cafe</span><span class="p">(</span><span class="s">"Cappuccino"</span><span class="p">,</span> <span class="m">4.00</span><span class="p">),</span>
+    <span class="k">new</span> <span class="nf">The</span><span class="p">(</span><span class="s">"Earl Grey"</span><span class="p">,</span> <span class="m">3.50</span><span class="p">),</span>
+    <span class="k">new</span> <span class="nf">Cafe</span><span class="p">(</span><span class="s">"Americano"</span><span class="p">,</span> <span class="m">3.00</span><span class="p">)</span>
+<span class="p">};</span>
+
+<span class="c1">// Même boucle pour toutes les boissons, mais chacune se prépare différemment</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="n">Boisson</span> <span class="n">boisson</span> <span class="k">in</span> <span class="n">commande</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">boisson</span><span class="p">.</span><span class="nf">Preparer</span><span class="p">();</span> <span class="c1">// Appelle la bonne méthode selon le type !</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="5-exemple-complet--notre-mini-café">5. Exemple Complet : Notre Mini-Café</h2>
+
+<p>Assemblons tout dans un exemple simple :</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+
+<span class="c1">// Notre grain de café</span>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">GrainCafe</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">Origine</span><span class="p">;</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">Variete</span><span class="p">;</span>
+    
+    <span class="k">public</span> <span class="nf">GrainCafe</span><span class="p">(</span><span class="kt">string</span> <span class="n">origine</span><span class="p">,</span> <span class="kt">string</span> <span class="n">variete</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Origine</span> <span class="p">=</span> <span class="n">origine</span><span class="p">;</span>
+        <span class="n">Variete</span> <span class="p">=</span> <span class="n">variete</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Notre boisson de base</span>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">Boisson</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">Nom</span><span class="p">;</span>
+    <span class="k">public</span> <span class="kt">double</span> <span class="n">Prix</span><span class="p">;</span>
+    
+    <span class="k">public</span> <span class="nf">Boisson</span><span class="p">(</span><span class="kt">string</span> <span class="n">nom</span><span class="p">,</span> <span class="kt">double</span> <span class="n">prix</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Nom</span> <span class="p">=</span> <span class="n">nom</span><span class="p">;</span>
+        <span class="n">Prix</span> <span class="p">=</span> <span class="n">prix</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="k">public</span> <span class="k">virtual</span> <span class="k">void</span> <span class="nf">Preparer</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Préparation de </span><span class="p">{</span><span class="n">Nom</span><span class="p">}</span><span class="s">..."</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Notre café spécialisé</span>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">Cafe</span> <span class="p">:</span> <span class="n">Boisson</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="n">GrainCafe</span> <span class="n">Grain</span><span class="p">;</span>
+    
+    <span class="k">public</span> <span class="nf">Cafe</span><span class="p">(</span><span class="kt">string</span> <span class="n">nom</span><span class="p">,</span> <span class="kt">double</span> <span class="n">prix</span><span class="p">,</span> <span class="n">GrainCafe</span> <span class="n">grain</span><span class="p">)</span> <span class="p">:</span> <span class="k">base</span><span class="p">(</span><span class="n">nom</span><span class="p">,</span> <span class="n">prix</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Grain</span> <span class="p">=</span> <span class="n">grain</span><span class="p">;</span>
+    <span class="p">}</span>
+    
+    <span class="k">public</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">Preparer</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"☕ Préparation d'un </span><span class="p">{</span><span class="n">Nom</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"☕ Avec du </span><span class="p">{</span><span class="n">Grain</span><span class="p">.</span><span class="n">Variete</span><span class="p">}</span><span class="s"> de </span><span class="p">{</span><span class="n">Grain</span><span class="p">.</span><span class="n">Origine</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"☕ </span><span class="p">{</span><span class="n">Nom</span><span class="p">}</span><span class="s"> prêt ! Prix : </span><span class="p">{</span><span class="n">Prix</span><span class="p">}</span><span class="s">€"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Notre programme principal</span>
+<span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// Créer des grains</span>
+        <span class="n">GrainCafe</span> <span class="n">arabica</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">GrainCafe</span><span class="p">(</span><span class="s">"Éthiopie"</span><span class="p">,</span> <span class="s">"Arabica"</span><span class="p">);</span>
+        <span class="n">GrainCafe</span> <span class="n">robusta</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">GrainCafe</span><span class="p">(</span><span class="s">"Vietnam"</span><span class="p">,</span> <span class="s">"Robusta"</span><span class="p">);</span>
+        
+        <span class="c1">// Créer des cafés</span>
+        <span class="n">Cafe</span> <span class="n">espresso</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Cafe</span><span class="p">(</span><span class="s">"Espresso"</span><span class="p">,</span> <span class="m">2.50</span><span class="p">,</span> <span class="n">arabica</span><span class="p">);</span>
+        <span class="n">Cafe</span> <span class="n">americano</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Cafe</span><span class="p">(</span><span class="s">"Americano"</span><span class="p">,</span> <span class="m">3.00</span><span class="p">,</span> <span class="n">robusta</span><span class="p">);</span>
+        
+        <span class="c1">// Préparer les commandes</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"=== Bienvenue dans notre café ! ==="</span><span class="p">);</span>
+        <span class="n">espresso</span><span class="p">.</span><span class="nf">Preparer</span><span class="p">();</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">();</span>
+        <span class="n">americano</span><span class="p">.</span><span class="nf">Preparer</span><span class="p">();</span>
+        
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"\nMerci de votre visite ! ☕"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="6-récapitulatif-simple">6. Récapitulatif Simple</h2>
+
+<p>✅ <strong>Classe</strong> = Une recette (comment créer quelque chose)<br />
+✅ <strong>Objet</strong> = Le résultat de la recette (votre café concret)<br />
+✅ <strong>Encapsulation</strong> = Garder certaines choses privées<br />
+✅ <strong>Héritage</strong> = Réutiliser une recette de base<br />
+✅ <strong>Polymorphisme</strong> = Même action, résultats différents</p>
+
+<p>La POO, c’est comme gérer un café :</p>
+<ul>
+  <li>Chaque chose a sa place (classes)</li>
+  <li>On réutilise ce qui marche (héritage)</li>
+  <li>On protège nos secrets (encapsulation)</li>
+  <li>On s’adapte aux besoins (polymorphisme)</li>
+</ul>
+
+<hr />
+
+<p><em>Auteur : MattDevBzh</em></p>
