@@ -49,6 +49,34 @@ if (stockCafe >= grammesPourEspresso)
 }
 ```
 
+### ⚠️ Erreurs courantes avec if
+
+```csharp
+// ❌ ERREUR : Utiliser = au lieu de ==
+int stock = 10;
+if (stock = 5) // ERREUR ! Assigne 5 au lieu de comparer !
+{
+    Console.WriteLine("Stock égal à 5");
+}
+
+// ❌ ERREUR : Oublier les accolades
+if (stock > 0)
+    Console.WriteLine("Stock disponible");
+    Console.WriteLine("Cette ligne s'exécute TOUJOURS !"); // Pas dans le if !
+
+// ✅ CORRECT : Bonnes pratiques
+if (stock == 5) // ✅ Comparaison avec ==
+{
+    Console.WriteLine("Stock égal à 5");
+}
+
+if (stock > 0) // ✅ Toujours utiliser des accolades
+{
+    Console.WriteLine("Stock disponible");
+    Console.WriteLine("Cette ligne est dans le if");
+}
+```
+
 ### Exemple : Gestion de l'heure d'ouverture
 ```csharp
 int heureActuelle = 8;
