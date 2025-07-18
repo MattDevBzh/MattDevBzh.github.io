@@ -41,6 +41,30 @@ string[] varietesGrains = {"Arabica", "Robusta", "Liberica", "Excelsa"};
 double[] prixMenu = new double[] {2.50, 4.00, 4.50, 3.00, 3.80};
 ```
 
+### ⚠️ Erreurs courantes avec les tableaux
+
+```csharp
+// ❌ ERREUR #1 : Dépasser la taille du tableau
+string[] cafes = {"Espresso", "Cappuccino", "Latte"};
+Console.WriteLine(cafes[5]); // PLANTAGE ! Index 5 n'existe pas (max = 2)
+
+// ❌ ERREUR #2 : Oublier que les index commencent à 0
+string[] cafes = {"Espresso", "Cappuccino", "Latte"}; // 3 éléments
+// Index valides : 0, 1, 2 (pas 1, 2, 3 !)
+
+// ❌ ERREUR #3 : Essayer de changer la taille
+string[] cafes = new string[3];
+// cafes.Length = 5; // IMPOSSIBLE ! La taille est fixe
+
+// ✅ CORRECT : Vérifier les limites
+string[] cafes = {"Espresso", "Cappuccino", "Latte"};
+int index = 2;
+if (index >= 0 && index < cafes.Length)
+{
+    Console.WriteLine(cafes[index]); // Sécurisé !
+}
+```
+
 ### Exemple : Stock de grains par origine
 ```csharp
 // Inventaire des grains par pays
@@ -215,7 +239,43 @@ foreach (string produit in produitsManquants)
 }
 ```
 
-### Exemple : File d'attente dynamique
+### ⚠️ Pièges courants avec les listes
+
+```csharp
+// ❌ PIÈGE #1 : Modifier une liste pendant qu'on la parcourt
+List<string> clients = new List<string> {"Marie", "Paul", "Julie"};
+foreach (string client in clients)
+{
+    if (client == "Paul")
+    {
+        clients.Remove(client); // ERREUR ! Modifie la liste pendant le parcours
+    }
+}
+
+// ✅ CORRECT : Utiliser une boucle for inverse ou une liste temporaire
+for (int i = clients.Count - 1; i >= 0; i--)
+{
+    if (clients[i] == "Paul")
+    {
+        clients.RemoveAt(i); // OK !
+    }
+}
+
+// ❌ PIÈGE #2 : Confondre Remove et RemoveAt
+List<int> numeros = new List<int> {10, 20, 30};
+numeros.Remove(1);    // Supprime la VALEUR 1 (pas l'index 1 !)
+numeros.RemoveAt(1);  // Supprime l'élément à l'INDEX 1
+
+// ❌ PIÈGE #3 : Accès à un index inexistant (comme les tableaux)
+List<string> cafes = new List<string> {"Espresso"};
+Console.WriteLine(cafes[5]); // PLANTAGE !
+
+// ✅ CORRECT : Vérification avant accès
+if (index >= 0 && index < cafes.Count)
+{
+    Console.WriteLine(cafes[index]);
+}
+```
 ```csharp
 class Client
 {
@@ -251,35 +311,79 @@ if (fileAttente.Count > 0)
 
 ## 4. Les dictionnaires (`Dictionary<K,V>`) : Clé-valeur
 
-Les dictionnaires stockent des paires clé-valeur. Parfait pour associer des informations !
+Les dictionnaires stockent des paires clé-valeur. Parfait pour associer des informations ! C'est comme un carnet d'adresses : nom → téléphone.
 
-### Exemple : Carte des prix
+### Exemple simple : Carte des prix
 ```csharp
 Dictionary<string, double> cartePrix = new Dictionary<string, double>
 {
     {"Espresso", 2.50},
     {"Cappuccino", 4.00},
-    {"Latte", 4.50},
-    {"Americano", 3.00},
-    {"Macchiato", 3.80},
-    {"Mocha", 5.00}
+    {"Latte", 4.50}
 };
 
-Console.WriteLine("💰 === CARTE DES PRIX ===");
-foreach (var item in cartePrix)
-{
-    Console.WriteLine($"{item.Key,-12} : {item.Value:C2}");
-}
-
-// Recherche d'un prix
+// Accès sécurisé à une valeur
 string cafeRecherche = "Latte";
 if (cartePrix.ContainsKey(cafeRecherche))
 {
-    Console.WriteLine($"\n🔍 Prix du {cafeRecherche} : {cartePrix[cafeRecherche]:C2}");
+    Console.WriteLine($"Prix du {cafeRecherche} : {cartePrix[cafeRecherche]:C2}");
 }
 else
 {
-    Console.WriteLine($"\n❌ {cafeRecherche} non trouvé dans la carte");
+    Console.WriteLine($"{cafeRecherche} non disponible");
+}
+```
+
+### ⚠️ Erreurs courantes avec les dictionnaires
+
+```csharp
+Dictionary<string, double> prix = new Dictionary<string, double>
+{
+    {"Espresso", 2.50},
+    {"Cappuccino", 4.00}
+};
+
+// ❌ ERREUR #1 : Accès direct sans vérifier si la clé existe
+double prixLatte = prix["Latte"]; // PLANTAGE ! Clé inexistante
+
+// ❌ ERREUR #2 : Ajouter une clé qui existe déjà
+prix.Add("Espresso", 3.00); // ERREUR ! Clé déjà présente
+
+// ❌ ERREUR #3 : Clés avec casse différente
+prix.Add("ESPRESSO", 3.00); // Considéré comme différent d'"Espresso"
+
+// ✅ CORRECT : Vérifications appropriées
+// Pour lire :
+if (prix.ContainsKey("Latte"))
+{
+    Console.WriteLine($"Prix : {prix["Latte"]}");
+}
+
+// Pour ajouter/modifier :
+prix["Latte"] = 4.50; // Ajoute si n'existe pas, modifie sinon
+
+// Pour obtenir avec valeur par défaut :
+double prixDefault = prix.GetValueOrDefault("Thé", 2.00); // 2.00 si pas trouvé
+```
+
+### Conseils pour bien utiliser les dictionnaires
+
+```csharp
+// ✅ BONNE PRATIQUE : TryGetValue pour éviter les exceptions
+Dictionary<string, double> prix = new Dictionary<string, double>
+{
+    {"Espresso", 2.50},
+    {"Cappuccino", 4.00}
+};
+
+// Méthode sûre :
+if (prix.TryGetValue("Latte", out double prixLatte))
+{
+    Console.WriteLine($"Prix trouvé : {prixLatte}");
+}
+else
+{
+    Console.WriteLine("Café non trouvé dans la carte");
 }
 ```
 
@@ -641,16 +745,89 @@ var resultat = ventes.Where(v => v.Prix > 3)
 
 ---
 
-## Exercices pratiques
+## 📋 Récapitulatif pour débutants
 
-### Exercice 1 : Gestionnaire de stock
-Créez un système qui gère un inventaire avec alerte automatique pour les stocks faibles.
+### Quand utiliser quelle collection ?
 
-### Exercice 2 : Analyseur de préférences
-Créez un programme qui analyse les préférences des clients et recommande des produits.
+| Situation | Collection à utiliser | Pourquoi ? |
+|-----------|----------------------|------------|
+| Taille fixe connue | `Array` | Plus rapide, mémoire optimisée |
+| Taille variable | `List<T>` | Flexible, facile à utiliser |
+| Recherche par clé | `Dictionary<K,V>` | Accès ultra-rapide |
+| Éviter les doublons | `HashSet<T>` | Unicité garantie |
 
-### Exercice 3 : Planificateur de tournées
-Créez un système qui organise les livraisons de grains selon les distances.
+### ⚠️ Pièges les plus fréquents à éviter
+
+1. **Index hors limites** : Toujours vérifier `index < collection.Count`
+2. **Modifier pendant le parcours** : Utiliser une boucle `for` inverse
+3. **Oublier que les index commencent à 0** : Premier élément = index 0
+4. **Dictionnaire : accès direct sans vérification** : Utiliser `ContainsKey()` ou `TryGetValue()`
+5. **Performance : créer des collections dans des boucles** : Réutiliser quand possible
+
+### 🎯 Conseils pour bien commencer
+
+```csharp
+// ✅ TOUJOURS vérifier avant d'accéder
+if (index >= 0 && index < liste.Count)
+{
+    var element = liste[index];
+}
+
+// ✅ TOUJOURS vérifier les clés de dictionnaire
+if (dictionnaire.ContainsKey(cle))
+{
+    var valeur = dictionnaire[cle];
+}
+
+// ✅ UTILISER des noms explicites
+List<string> nomsClients = new List<string>(); // ✅ Clair
+List<string> data = new List<string>();        // ❌ Vague
+```
+
+---
+
+## Exercice pratique simple
+
+**Créez un mini-système de café avec :**
+1. Liste des cafés disponibles
+2. Stock de chaque café (dictionnaire)  
+3. Commandes des clients
+
+**Solution exemple :**
+```csharp
+class MiniCafeSystem
+{
+    static void Main()
+    {
+        // 1. Liste des cafés
+        List<string> menuCafes = new List<string> {"Espresso", "Cappuccino", "Latte"};
+        
+        // 2. Stock
+        Dictionary<string, int> stocks = new Dictionary<string, int>
+        {
+            {"Espresso", 10},
+            {"Cappuccino", 5},
+            {"Latte", 3}
+        };
+        
+        // 3. Commandes
+        List<string> commandes = new List<string>();
+        
+        // Exemple de commande
+        string cafeVoulu = "Cappuccino";
+        if (stocks.ContainsKey(cafeVoulu) && stocks[cafeVoulu] > 0)
+        {
+            commandes.Add(cafeVoulu);
+            stocks[cafeVoulu]--;
+            Console.WriteLine($"✅ {cafeVoulu} commandé ! Stock restant : {stocks[cafeVoulu]}");
+        }
+        else
+        {
+            Console.WriteLine($"❌ {cafeVoulu} non disponible");
+        }
+    }
+}
+```
 
 ---
 
@@ -661,13 +838,16 @@ Les collections sont les **outils d'organisation** de la programmation ! Elles n
 - ✅ **Stocker des données structurées** avec les tableaux
 - ✅ **Gérer des listes dynamiques** avec `List<T>`
 - ✅ **Associer des informations** avec `Dictionary<K,V>`
-- ✅ **Garantir l'unicité** avec `HashSet<T>`
-- ✅ **Analyser les données** avec LINQ
+- ✅ **Éviter les erreurs courantes** en vérifiant les limites
 
-Comme un café bien organisé où chaque produit a sa place, les collections nous aident à structurer nos programmes efficacement !
+**Points clés à retenir :**
+- 🔍 **Vérifiez toujours** les index et les clés avant d'accéder
+- 📏 **Choisissez la bonne collection** selon vos besoins
+- 🎯 **Commencez simple** avec `List<T>` et `Dictionary<K,V>`
+- ⚠️ **Attention aux modifications** pendant les parcours
 
-**Prochaine étape :** Nous découvrirons la gestion des exceptions pour traiter les erreurs avec élégance ! ☕
+**Prochaine étape :** Maintenant que vous savez organiser vos données, vous pouvez apprendre la gestion des erreurs pour créer des programmes robustes !
+
+**Félicitations !** Vous savez maintenant organiser vos données comme un pro ! ☕
 
 ---
-
-*Expérimentez avec ces collections et créez vos propres systèmes de gestion. Un bon développeur, c'est comme un bon gestionnaire de café : il sait organiser ses données ! 🚀*

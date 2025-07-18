@@ -29,7 +29,7 @@ Une **boucle** est une structure qui permet de répéter un bloc de code plusieu
 
 La boucle `for` est parfaite quand on sait exactement combien de fois répéter une action.
 
-### Syntaxe
+### Syntaxe simple
 ```csharp
 for (initialisation; condition; incrémentation)
 {
@@ -55,6 +55,42 @@ for (int i = 1; i <= nombreEspressos; i++)
 
 Console.WriteLine($"🎉 Commande terminée ! {nombreEspressos} espressos prêts");
 ```
+
+### ⚠️ Erreurs courantes avec la boucle for
+
+```csharp
+// ❌ ERREUR #1 : Boucle infinie par oubli d'incrémentation
+for (int i = 0; i < 5; /* i++ oublié ! */)
+{
+    Console.WriteLine("Cette boucle ne finira jamais !");
+    // Le programme reste bloqué ici !
+}
+
+// ❌ ERREUR #2 : Condition mal écrite
+for (int i = 0; i <= 5; i++) // ⚠️ <= au lieu de < = 6 tours au lieu de 5 !
+{
+    Console.WriteLine($"Tour {i}"); // 0, 1, 2, 3, 4, 5
+}
+
+// ❌ ERREUR #3 : Confusion entre index et nombre d'éléments
+string[] cafes = {"Espresso", "Cappuccino", "Latte"}; // 3 éléments
+for (int i = 0; i <= cafes.Length; i++) // ❌ <= cafes.Length !
+{
+    Console.WriteLine(cafes[i]); // PLANTAGE à i=3 !
+}
+
+// ✅ CORRECT : Les bonnes pratiques
+string[] cafes = {"Espresso", "Cappuccino", "Latte"};
+for (int i = 0; i < cafes.Length; i++) // < (pas <=)
+{
+    Console.WriteLine($"{i + 1}. {cafes[i]}"); // Numérotation à partir de 1
+}
+```
+
+**Règles d'or pour la boucle for :**
+1. **Toujours incrémenter** le compteur (`i++`)
+2. **Utiliser `<`** pour éviter les dépassements
+3. **Commencer à 0** pour les tableaux et listes
 
 ### Exemple : Calcul du chiffre d'affaires journalier
 ```csharp
@@ -92,13 +128,78 @@ for (int i = 0; i < produits.Length; i++)
 
 La boucle `while` continue tant qu'une condition reste vraie. Parfaite pour traiter une file d'attente !
 
-### Syntaxe
+### Syntaxe simple
 ```csharp
 while (condition)
 {
     // Code à répéter
 }
 ```
+
+### Exemple : Servir une file d'attente
+```csharp
+int clientsEnAttente = 8;
+
+Console.WriteLine($"👥 {clientsEnAttente} clients en attente");
+Console.WriteLine("Début du service...\n");
+
+while (clientsEnAttente > 0)
+{
+    Console.WriteLine($"☕ Service du client n°{9 - clientsEnAttente}");
+    Console.WriteLine("- Prendre la commande");
+    Console.WriteLine("- Préparer le café");
+    Console.WriteLine("- Servir le client");
+    
+    clientsEnAttente--; // IMPORTANT : modifier la condition !
+    
+    Console.WriteLine($"✅ Client servi ! Plus que {clientsEnAttente} en attente\n");
+}
+
+Console.WriteLine("🎉 Tous les clients ont été servis !");
+```
+
+### ⚠️ Pièges mortels avec while
+
+```csharp
+// ❌ PIÈGE MORTEL #1 : Boucle infinie par oubli de modification
+int clients = 5;
+while (clients > 0)
+{
+    Console.WriteLine("Service en cours...");
+    // clients--; // OUBLIÉ ! La boucle ne finira JAMAIS !
+}
+
+// ❌ PIÈGE #2 : Condition qui ne peut jamais être fausse
+int compteur = 0;
+while (compteur >= 0) // Sera TOUJOURS vrai !
+{
+    compteur++; // On augmente au lieu de diminuer !
+    Console.WriteLine($"Compteur : {compteur}");
+    // Cette boucle ne s'arrêtera jamais !
+}
+
+// ❌ PIÈGE #3 : Modification incorrecte de la condition
+string reponse = "oui";
+while (reponse == "oui")
+{
+    Console.WriteLine("Voulez-vous continuer ? (oui/non)");
+    // reponse = Console.ReadLine(); // OUBLIÉ !
+    // La boucle ne peut jamais s'arrêter
+}
+
+// ✅ CORRECT : Toujours modifier la condition dans la boucle
+int clients = 5;
+while (clients > 0)
+{
+    Console.WriteLine($"Service du client {clients}");
+    clients--; // ✅ On modifie la condition !
+}
+```
+
+**Règles d'or pour while :**
+1. **Toujours modifier** la variable de condition dans la boucle
+2. **Tester la condition** avant d'écrire la boucle
+3. **Prévoir une sortie** de secours si possible
 
 ### Exemple : Servir la file d'attente
 ```csharp
@@ -253,9 +354,9 @@ Console.WriteLine($"✅ Commande validée : {quantite} café(s)");
 
 ## 4. La boucle `foreach` : Parcourir des collections
 
-La boucle `foreach` est parfaite pour traiter chaque élément d'une collection.
+La boucle `foreach` est parfaite pour traiter chaque élément d'une collection. Plus simple et plus sûre que `for` !
 
-### Syntaxe
+### Syntaxe simple
 ```csharp
 foreach (type element in collection)
 {
@@ -263,9 +364,9 @@ foreach (type element in collection)
 }
 ```
 
-### Exemple : Afficher tous les produits
+### Exemple : Afficher le menu
 ```csharp
-string[] menuCafes = {"Espresso", "Americano", "Cappuccino", "Latte", "Macchiato", "Mocha"};
+string[] menuCafes = {"Espresso", "Americano", "Cappuccino", "Latte", "Macchiato"};
 
 Console.WriteLine("☕ === NOTRE CARTE ===");
 
@@ -274,6 +375,58 @@ foreach (string cafe in menuCafes)
     Console.WriteLine($"- {cafe}");
 }
 ```
+
+### ⚠️ Erreurs courantes avec foreach
+
+```csharp
+// ❌ ERREUR #1 : Essayer de modifier la collection pendant le parcours
+List<string> clients = new List<string> {"Marie", "Paul", "Julie"};
+
+foreach (string client in clients)
+{
+    if (client == "Paul")
+    {
+        clients.Remove(client); // ERREUR ! Modifie la collection en cours de parcours
+    }
+}
+
+// ❌ ERREUR #2 : Essayer de modifier l'élément actuel
+int[] prix = {2, 4, 3, 5};
+foreach (int p in prix)
+{
+    p = p * 2; // ❌ N'a AUCUN effet sur le tableau !
+}
+
+// ✅ CORRECT : Solutions pour modifier
+// Solution 1 : Utiliser for pour modifier les éléments
+for (int i = 0; i < prix.Length; i++)
+{
+    prix[i] = prix[i] * 2; // ✅ Modifie vraiment le tableau
+}
+
+// Solution 2 : Créer une nouvelle collection pour les suppressions
+List<string> clients = new List<string> {"Marie", "Paul", "Julie"};
+List<string> clientsASupprimer = new List<string>();
+
+foreach (string client in clients)
+{
+    if (client == "Paul")
+    {
+        clientsASupprimer.Add(client);
+    }
+}
+
+foreach (string client in clientsASupprimer)
+{
+    clients.Remove(client); // ✅ Suppression sécurisée
+}
+```
+
+**Avantages de foreach :**
+- ✅ Plus simple à écrire
+- ✅ Pas de risque de dépasser les limites
+- ✅ Plus lisible
+- ✅ Fonctionne avec toutes les collections
 
 ### Exemple : Calcul de stock total
 ```csharp
@@ -599,16 +752,90 @@ for (int i = 0; i < items.Length; i++)
 
 ---
 
-## Exercices pratiques
+## 📋 Récapitulatif pour débutants
 
-### Exercice 1 : Calcul de moyenne
-Créez un programme qui calcule la note moyenne d'évaluation de différents cafés.
+### Quelle boucle choisir ?
 
-### Exercice 2 : Jeu de devinette
-Créez un jeu où l'utilisateur doit deviner le prix d'un café. Utilisez une boucle `do...while` pour permettre plusieurs tentatives.
+| Situation | Boucle recommandée | Pourquoi ? |
+|-----------|-------------------|------------|
+| Nombre de répétitions connu | `for` | Plus claire, compteur automatique |
+| Condition à vérifier | `while` | Flexibilité maximale |
+| Parcours d'une collection | `foreach` | Plus simple et sûre |
+| Au moins une exécution | `do...while` | Garantit une exécution |
 
-### Exercice 3 : Générateur de facture
-Créez un programme qui génère une facture pour plusieurs commandes en utilisant `foreach`.
+### ⚠️ Pièges les plus dangereux à éviter
+
+1. **Boucles infinies** : Toujours modifier la condition dans `while`
+2. **Index hors limites** : Utiliser `<` (pas `<=`) dans les boucles `for`
+3. **Modifier pendant le parcours** : Ne pas changer une collection dans `foreach`
+4. **Oubli d'incrémentation** : Toujours avoir `i++` dans `for`
+
+### 🎯 Conseils pour débuter
+
+```csharp
+// ✅ TESTEZ vos conditions avant d'écrire la boucle
+int compteur = 5;
+while (compteur > 0) // ✅ Condition claire
+{
+    Console.WriteLine(compteur);
+    compteur--; // ✅ Modification claire
+}
+
+// ✅ PRÉFÉREZ foreach quand c'est possible
+string[] cafes = {"Espresso", "Latte"};
+foreach (string cafe in cafes) // ✅ Simple et sûr
+{
+    Console.WriteLine(cafe);
+}
+
+// ✅ UTILISEZ des noms de variables clairs
+for (int numeroCafe = 1; numeroCafe <= 5; numeroCafe++) // ✅ Explicite
+{
+    Console.WriteLine($"Café n°{numeroCafe}");
+}
+```
+
+---
+
+## Exercice pratique simple
+
+**Créez un programme de commande de café qui :**
+1. Affiche le menu (foreach)
+2. Demande le nombre de cafés (do...while pour validation)
+3. Prépare chaque café (for)
+
+**Solution exemple :**
+```csharp
+class ExerciceBoucles
+{
+    static void Main()
+    {
+        // 1. Affichage du menu
+        string[] menu = {"Espresso", "Cappuccino", "Latte"};
+        Console.WriteLine("☕ === MENU ===");
+        foreach (string cafe in menu)
+        {
+            Console.WriteLine($"- {cafe}");
+        }
+        
+        // 2. Validation de la quantité
+        int quantite;
+        do
+        {
+            Console.Write("Combien de cafés ? (1-5) : ");
+        } while (!int.TryParse(Console.ReadLine(), out quantite) || 
+                 quantite < 1 || quantite > 5);
+        
+        // 3. Préparation
+        for (int i = 1; i <= quantite; i++)
+        {
+            Console.WriteLine($"☕ Préparation du café n°{i}...");
+        }
+        
+        Console.WriteLine($"✅ {quantite} café(s) prêt(s) !");
+    }
+}
+```
 
 ---
 
@@ -619,12 +846,16 @@ Les boucles sont les **outils d'automatisation** de la programmation ! Elles nou
 - ✅ **Répéter efficacement** des tâches avec `for`
 - ✅ **Traiter des conditions dynamiques** avec `while`
 - ✅ **Parcourir des collections** avec `foreach`
-- ✅ **Contrôler l'exécution** avec `break` et `continue`
+- ✅ **Éviter les erreurs courantes** en suivant les bonnes pratiques
 
-Comme un café qui sert des dizaines de clients avec la même qualité, les boucles garantissent la répétition fiable de nos processus !
+**Points clés à retenir :**
+- 🔄 **Choisissez la bonne boucle** selon la situation
+- ⚠️ **Attention aux boucles infinies** - toujours modifier la condition
+- 🛡️ **foreach est plus sûr** que for pour parcourir des collections
+- 🎯 **Testez vos conditions** avant d'écrire la boucle
 
-**Prochaine étape :** Nous découvrirons les collections et tableaux pour organiser et gérer efficacement nos données de café ! ☕
+**Prochaine étape :** Maintenant que vous maîtrisez les répétitions, vous pouvez apprendre les collections pour organiser vos données !
+
+**Félicitations !** Vous savez maintenant automatiser vos tâches comme un pro ! ☕
 
 ---
-
-*Pratiquez ces exemples et créez vos propres scénarios. Comme la préparation du café parfait, la maîtrise des boucles vient avec la répétition ! 🚀*
