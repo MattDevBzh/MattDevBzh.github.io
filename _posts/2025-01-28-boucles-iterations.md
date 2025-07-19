@@ -4,6 +4,56 @@ title: "Boucles et itérations en C# : Automatiser la préparation de vos cafés
 date: 2025-01-28
 ---
 
+<svg width="400" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="200" fill="#f8f9fa"/>
+  
+  <!-- Circular loop representation -->
+  <g>
+    <!-- Loop circle -->
+    <circle cx="200" cy="100" r="60" fill="none" stroke="#2196F3" stroke-width="4"/>
+    
+    <!-- Coffee cups around the circle -->
+    <g fill="#8B4513">
+      <!-- Cup 1 -->
+      <rect x="190" y="30" width="20" height="25" rx="2"/>
+      <rect x="192" y="32" width="16" height="20" fill="#D2691E" rx="1"/>
+      
+      <!-- Cup 2 -->
+      <rect x="260" y="75" width="20" height="25" rx="2"/>
+      <rect x="262" y="77" width="16" height="20" fill="#D2691E" rx="1"/>
+      
+      <!-- Cup 3 -->
+      <rect x="260" y="125" width="20" height="25" rx="2"/>
+      <rect x="262" y="127" width="16" height="20" fill="#D2691E" rx="1"/>
+      
+      <!-- Cup 4 -->
+      <rect x="190" y="170" width="20" height="25" rx="2"/>
+      <rect x="192" y="172" width="16" height="20" fill="#D2691E" rx="1"/>
+      
+      <!-- Cup 5 -->
+      <rect x="120" y="125" width="20" height="25" rx="2"/>
+      <rect x="122" y="127" width="16" height="20" fill="#D2691E" rx="1"/>
+      
+      <!-- Cup 6 -->
+      <rect x="120" y="75" width="20" height="25" rx="2"/>
+      <rect x="122" y="77" width="16" height="20" fill="#D2691E" rx="1"/>
+    </g>
+    
+    <!-- Center text -->
+    <text x="200" y="95" fill="#333" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle">LOOP</text>
+    <text x="200" y="110" fill="#666" font-family="Arial" font-size="10" text-anchor="middle">i = 1 to 6</text>
+    
+    <!-- Arrow showing direction -->
+    <polygon points="250,60 260,65 250,70 255,65" fill="#FF9800"/>
+    <text x="270" y="50" fill="#FF9800" font-family="Arial" font-size="12">for</text>
+  </g>
+  
+  <!-- Title -->
+  <text x="200" y="25" fill="#333" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle">Boucles et Itérations</text>
+  <text x="200" y="185" fill="#666" font-family="Arial" font-size="12" text-anchor="middle">Automatiser la préparation de vos cafés ☕</text>
+</svg>
+
 Dans un café animé, certaines tâches se répètent sans cesse : **préparer plusieurs espressos, servir une file de clients, nettoyer les tasses...** En programmation C#, les **boucles** nous permettent d'automatiser ces actions répétitives ! ☕
 
 Découvrons ensemble comment utiliser les boucles pour gérer efficacement les tâches répétitives de notre café virtuel.

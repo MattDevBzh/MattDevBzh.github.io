@@ -4,6 +4,54 @@ title: "Méthodes et fonctions en C# : Les recettes secrètes de votre café"
 date: 2025-01-31
 ---
 
+<svg width="400" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="200" fill="#f8f9fa"/>
+  
+  <!-- Method representation -->
+  <g>
+    <!-- Method box -->
+    <rect x="150" y="70" width="100" height="80" fill="#673AB7" rx="5"/>
+    <text x="200" y="85" fill="white" font-family="Arial" font-size="12" font-weight="bold" text-anchor="middle">MÉTHODE</text>
+    <text x="200" y="100" fill="white" font-family="Arial" font-size="10" text-anchor="middle">PreparerCafe()</text>
+    
+    <!-- Input arrow -->
+    <rect x="50" y="100" width="60" height="20" fill="#4CAF50" rx="3"/>
+    <text x="80" y="113" fill="white" font-family="Arial" font-size="8" text-anchor="middle">Paramètres</text>
+    <line x1="110" y1="110" x2="150" y2="110" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+    
+    <!-- Output arrow -->
+    <rect x="290" y="100" width="60" height="20" fill="#FF9800" rx="3"/>
+    <text x="320" y="113" fill="white" font-family="Arial" font-size="8" text-anchor="middle">Résultat</text>
+    <line x1="250" y1="110" x2="290" y2="110" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+    
+    <!-- Recipe elements inside method -->
+    <circle cx="180" cy="125" r="8" fill="#FFC107"/>
+    <text x="180" y="128" fill="white" font-family="Arial" font-size="6" text-anchor="middle">1</text>
+    <circle cx="200" cy="125" r="8" fill="#FFC107"/>
+    <text x="200" y="128" fill="white" font-family="Arial" font-size="6" text-anchor="middle">2</text>
+    <circle cx="220" cy="125" r="8" fill="#FFC107"/>
+    <text x="220" y="128" fill="white" font-family="Arial" font-size="6" text-anchor="middle">3</text>
+    
+    <!-- Process steps -->
+    <text x="200" y="140" fill="white" font-family="Arial" font-size="7" text-anchor="middle">1. Moudre grains</text>
+    <text x="200" y="150" fill="white" font-family="Arial" font-size="7" text-anchor="middle">2. Chauffer eau</text>
+    <text x="200" y="160" fill="white" font-family="Arial" font-size="7" text-anchor="middle">3. Extraire café</text>
+  </g>
+  
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="200" y="25" fill="#333" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle">Méthodes et Fonctions</text>
+  <text x="200" y="45" fill="#666" font-family="Arial" font-size="12" text-anchor="middle">Les recettes secrètes de votre café ☕</text>
+  <text x="200" y="185" fill="#666" font-family="Arial" font-size="10" text-anchor="middle">public string PreparerCafe(string type, int quantite) { ... }</text>
+</svg>
+
 Dans un café, chaque barista a ses **recettes secrètes** : comment obtenir la mousse parfaite, préparer l'espresso idéal, ou calculer rapidement les prix. En programmation C#, les **méthodes et fonctions** sont ces recettes réutilisables qui rendent notre code organisé et efficace ! ☕
 
 **Objectif de cet article :** Apprendre les bases des méthodes pour créer du code réutilisable et bien organisé.

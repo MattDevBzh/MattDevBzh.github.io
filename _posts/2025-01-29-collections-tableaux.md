@@ -4,6 +4,49 @@ title: "Collections et tableaux en C# : Organiser l'inventaire de votre café"
 date: 2025-01-29
 ---
 
+<svg width="400" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="200" fill="#f8f9fa"/>
+  
+  <!-- Array/Collection representation -->
+  <g>
+    <!-- Array structure -->
+    <rect x="80" y="80" width="240" height="60" fill="none" stroke="#333" stroke-width="2"/>
+    
+    <!-- Array elements -->
+    <rect x="85" y="85" width="35" height="50" fill="#8B4513" stroke="#333"/>
+    <rect x="125" y="85" width="35" height="50" fill="#D2691E" stroke="#333"/>
+    <rect x="165" y="85" width="35" height="50" fill="#CD853F" stroke="#333"/>
+    <rect x="205" y="85" width="35" height="50" fill="#A0522D" stroke="#333"/>
+    <rect x="245" y="85" width="35" height="50" fill="#8B4513" stroke="#333"/>
+    <rect x="285" y="85" width="35" height="50" fill="#D2691E" stroke="#333"/>
+    
+    <!-- Array labels -->
+    <text x="102" y="110" fill="white" font-family="Arial" font-size="8" text-anchor="middle">Arabica</text>
+    <text x="142" y="110" fill="white" font-family="Arial" font-size="8" text-anchor="middle">Robusta</text>
+    <text x="182" y="110" fill="white" font-family="Arial" font-size="8" text-anchor="middle">Moka</text>
+    <text x="222" y="110" fill="white" font-family="Arial" font-size="8" text-anchor="middle">Kona</text>
+    <text x="262" y="110" fill="white" font-family="Arial" font-size="8" text-anchor="middle">Blue M.</text>
+    <text x="302" y="110" fill="white" font-family="Arial" font-size="8" text-anchor="middle">Espresso</text>
+    
+    <!-- Indices -->
+    <text x="102" y="155" fill="#666" font-family="Arial" font-size="10" text-anchor="middle">[0]</text>
+    <text x="142" y="155" fill="#666" font-family="Arial" font-size="10" text-anchor="middle">[1]</text>
+    <text x="182" y="155" fill="#666" font-family="Arial" font-size="10" text-anchor="middle">[2]</text>
+    <text x="222" y="155" fill="#666" font-family="Arial" font-size="10" text-anchor="middle">[3]</text>
+    <text x="262" y="155" fill="#666" font-family="Arial" font-size="10" text-anchor="middle">[4]</text>
+    <text x="302" y="155" fill="#666" font-family="Arial" font-size="10" text-anchor="middle">[5]</text>
+    
+    <!-- Array name -->
+    <text x="50" y="110" fill="#333" font-family="Arial" font-size="12" font-weight="bold">grains[]</text>
+  </g>
+  
+  <!-- Title -->
+  <text x="200" y="25" fill="#333" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle">Collections et Tableaux</text>
+  <text x="200" y="45" fill="#666" font-family="Arial" font-size="12" text-anchor="middle">Organiser l'inventaire de votre café ☕</text>
+  <text x="200" y="185" fill="#666" font-family="Arial" font-size="10" text-anchor="middle">string[] grains = {"Arabica", "Robusta", "Moka", "Kona", "Blue Mountain", "Espresso"}</text>
+</svg>
+
 Un café bien géré, c'est un café où tout est **organisé et facilement accessible** ! Comme les étagères de grains, les collections de tasses ou la liste des clients fidèles. En C#, les **collections et tableaux** nous permettent de stocker et organiser efficacement nos données. ☕
 
 Découvrons ensemble comment gérer l'inventaire complet de notre café virtuel !

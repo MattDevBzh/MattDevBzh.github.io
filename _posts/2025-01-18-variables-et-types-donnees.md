@@ -4,6 +4,39 @@ title: "Les variables et types de données : les bases de la programmation"
 date: 2025-01-18
 ---
 
+<svg width="400" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="200" fill="#f8f9fa"/>
+  
+  <!-- Coffee cup containers representing variables -->
+  <g>
+    <!-- String variable cup -->
+    <rect x="50" y="80" width="60" height="80" fill="#8B4513" rx="5"/>
+    <rect x="55" y="85" width="50" height="70" fill="#D2691E" rx="3"/>
+    <text x="80" y="100" fill="white" font-family="Arial" font-size="10" text-anchor="middle">String</text>
+    <text x="80" y="115" fill="white" font-family="Arial" font-size="8" text-anchor="middle">"Espresso"</text>
+    <text x="80" y="180" fill="#333" font-family="Arial" font-size="12" text-anchor="middle">nomCafe</text>
+    
+    <!-- Number variable cup -->
+    <rect x="170" y="80" width="60" height="80" fill="#8B4513" rx="5"/>
+    <rect x="175" y="85" width="50" height="70" fill="#32CD32" rx="3"/>
+    <text x="200" y="100" fill="white" font-family="Arial" font-size="10" text-anchor="middle">Number</text>
+    <text x="200" y="115" fill="white" font-family="Arial" font-size="8" text-anchor="middle">2.50</text>
+    <text x="200" y="180" fill="#333" font-family="Arial" font-size="12" text-anchor="middle">prix</text>
+    
+    <!-- Boolean variable cup -->
+    <rect x="290" y="80" width="60" height="80" fill="#8B4513" rx="5"/>
+    <rect x="295" y="85" width="50" height="70" fill="#FF4500" rx="3"/>
+    <text x="320" y="100" fill="white" font-family="Arial" font-size="10" text-anchor="middle">Boolean</text>
+    <text x="320" y="115" fill="white" font-family="Arial" font-size="8" text-anchor="middle">true</text>
+    <text x="320" y="180" fill="#333" font-family="Arial" font-size="12" text-anchor="middle">disponible</text>
+  </g>
+  
+  <!-- Title -->
+  <text x="200" y="30" fill="#333" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle">Variables et Types de Données</text>
+  <text x="200" y="50" fill="#666" font-family="Arial" font-size="14" text-anchor="middle">Les contenants de votre café virtuel ☕</text>
+</svg>
+
 **Les variables** sont les fondations de tout programme informatique. Imaginez-les comme des tasses étiquetées dans votre café préféré : chacune peut contenir quelque chose de différent, et l'étiquette vous dit ce qu'elle contient !
 
 Dans cet article, nous allons découvrir ensemble les concepts fondamentaux des variables et types de données à travers l'univers familier du café. ☕

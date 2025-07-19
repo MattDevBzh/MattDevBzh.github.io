@@ -4,6 +4,51 @@ title: "Gestion des exceptions en C# : Gérer les pannes de votre café avec él
 date: 2025-01-30
 ---
 
+<svg width="400" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="200" fill="#f8f9fa"/>
+  
+  <!-- Exception handling flow -->
+  <g>
+    <!-- Try block -->
+    <rect x="50" y="60" width="80" height="40" fill="#4CAF50" rx="5"/>
+    <text x="90" y="78" fill="white" font-family="Arial" font-size="10" font-weight="bold" text-anchor="middle">TRY</text>
+    <text x="90" y="90" fill="white" font-family="Arial" font-size="8" text-anchor="middle">Préparer café</text>
+    
+    <!-- Exception symbol -->
+    <polygon points="200,70 210,80 200,90 190,80" fill="#FF5722"/>
+    <text x="200" y="83" fill="white" font-family="Arial" font-size="12" font-weight="bold" text-anchor="middle">!</text>
+    <text x="200" y="110" fill="#FF5722" font-family="Arial" font-size="8" text-anchor="middle">Exception</text>
+    
+    <!-- Catch block -->
+    <rect x="270" y="60" width="80" height="40" fill="#FF9800" rx="5"/>
+    <text x="310" y="78" fill="white" font-family="Arial" font-size="10" font-weight="bold" text-anchor="middle">CATCH</text>
+    <text x="310" y="90" fill="white" font-family="Arial" font-size="8" text-anchor="middle">Gérer erreur</text>
+    
+    <!-- Finally block -->
+    <rect x="160" y="130" width="80" height="40" fill="#2196F3" rx="5"/>
+    <text x="200" y="148" fill="white" font-family="Arial" font-size="10" font-weight="bold" text-anchor="middle">FINALLY</text>
+    <text x="200" y="160" fill="white" font-family="Arial" font-size="8" text-anchor="middle">Nettoyer</text>
+    
+    <!-- Arrows -->
+    <line x1="130" y1="80" x2="190" y2="80" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+    <line x1="210" y1="80" x2="270" y2="80" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+    <line x1="200" y1="100" x2="200" y2="130" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  </g>
+  
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="200" y="25" fill="#333" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle">Gestion des Exceptions</text>
+  <text x="200" y="45" fill="#666" font-family="Arial" font-size="12" text-anchor="middle">Gérer les pannes avec élégance ☕</text>
+  <text x="200" y="190" fill="#666" font-family="Arial" font-size="10" text-anchor="middle">try { } catch (Exception ex) { } finally { }</text>
+</svg>
+
 Dans un café, tout ne se passe pas toujours comme prévu ! **Machine en panne, stock épuisé, commande incorrecte...** En programmation C#, les **exceptions** nous permettent de gérer ces situations inattendues avec élégance et professionnalisme. ☕
 
 **Objectif de cet article :** Apprendre à gérer les erreurs proprement, sans faire planter votre programme !

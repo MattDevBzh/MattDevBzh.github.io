@@ -4,6 +4,52 @@ title: "Conditions et structures de contrôle en C# : Prendre les bonnes décisi
 date: 2025-01-27
 ---
 
+<svg width="400" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="200" fill="#f8f9fa"/>
+  
+  <!-- Decision flowchart -->
+  <g>
+    <!-- Start -->
+    <circle cx="200" cy="40" r="20" fill="#4CAF50"/>
+    <text x="200" y="45" fill="white" font-family="Arial" font-size="10" text-anchor="middle">START</text>
+    
+    <!-- Decision diamond -->
+    <polygon points="200,80 240,100 200,120 160,100" fill="#FF9800"/>
+    <text x="200" y="105" fill="white" font-family="Arial" font-size="9" text-anchor="middle">Client?</text>
+    
+    <!-- Yes path -->
+    <rect x="280" y="85" width="60" height="30" fill="#2196F3" rx="5"/>
+    <text x="310" y="100" fill="white" font-family="Arial" font-size="8" text-anchor="middle">Préparer</text>
+    <text x="310" y="110" fill="white" font-family="Arial" font-size="8" text-anchor="middle">Café</text>
+    
+    <!-- No path -->
+    <rect x="60" y="85" width="60" height="30" fill="#F44336" rx="5"/>
+    <text x="90" y="100" fill="white" font-family="Arial" font-size="8" text-anchor="middle">Attendre</text>
+    <text x="90" y="110" fill="white" font-family="Arial" font-size="8" text-anchor="middle">Client</text>
+    
+    <!-- Arrows -->
+    <line x1="200" y1="60" x2="200" y2="80" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="240" y1="100" x2="280" y2="100" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <line x1="160" y1="100" x2="120" y2="100" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+    
+    <!-- Labels -->
+    <text x="260" y="95" fill="#333" font-family="Arial" font-size="10">OUI</text>
+    <text x="130" y="95" fill="#333" font-family="Arial" font-size="10">NON</text>
+  </g>
+  
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="200" y="20" fill="#333" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle">Structures de Contrôle</text>
+  <text x="200" y="180" fill="#666" font-family="Arial" font-size="12" text-anchor="middle">Prendre les bonnes décisions dans votre café ☕</text>
+</svg>
+
 Dans la programmation comme dans un café, il faut constamment prendre des décisions ! **Quel café servir selon les préférences du client ? Que faire si la machine est en panne ?** Les structures de contrôle en C# nous permettent de gérer ces situations. ☕
 
 Découvrons ensemble comment programmer la logique de décision avec des exemples tirés de la gestion d'un café !
