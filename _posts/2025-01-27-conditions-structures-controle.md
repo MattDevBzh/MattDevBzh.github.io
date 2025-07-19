@@ -4,6 +4,8 @@ title: "Conditions et structures de contrôle en C# : Prendre les bonnes décisi
 date: 2025-01-27
 ---
 
+![Illustration conditions et structures de contrôle](/_posts/conditions-illustration.svg)
+
 Dans la programmation comme dans un café, il faut constamment prendre des décisions ! **Quel café servir selon les préférences du client ? Que faire si la machine est en panne ?** Les structures de contrôle en C# nous permettent de gérer ces situations. ☕
 
 Découvrons ensemble comment programmer la logique de décision avec des exemples tirés de la gestion d'un café !
