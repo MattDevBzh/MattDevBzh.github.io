@@ -4,6 +4,8 @@ title: "Les variables et types de données : les bases de la programmation"
 date: 2025-01-18
 ---
 
+![Illustration variables et types de données](/_posts/variables-illustration.svg)
+
 **Les variables** sont les fondations de tout programme informatique. Imaginez-les comme des tasses étiquetées dans votre café préféré : chacune peut contenir quelque chose de différent, et l'étiquette vous dit ce qu'elle contient !
 
 Dans cet article, nous allons découvrir ensemble les concepts fondamentaux des variables et types de données à travers l'univers familier du café. ☕

@@ -1,0 +1,64 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="300" fill="#f8f4e6"/>
+  
+  <!-- Coffee cup class diagram -->
+  <rect x="80" y="60" width="100" height="120" fill="#8B4513" rx="10"/>
+  <rect x="90" y="70" width="80" height="30" fill="#DEB887" rx="5"/>
+  <text x="130" y="90" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333" font-weight="bold">Cafe</text>
+  
+  <!-- Properties -->
+  <text x="95" y="110" font-family="Arial, sans-serif" font-size="8" fill="#FFF">+ nom: string</text>
+  <text x="95" y="122" font-family="Arial, sans-serif" font-size="8" fill="#FFF">+ prix: double</text>
+  <text x="95" y="134" font-family="Arial, sans-serif" font-size="8" fill="#FFF">+ taille: string</text>
+  
+  <!-- Methods -->
+  <line x1="95" y1="145" x2="165" y2="145" stroke="#DEB887"/>
+  <text x="95" y="158" font-family="Arial, sans-serif" font-size="8" fill="#FFF">+ Preparer()</text>
+  <text x="95" y="170" font-family="Arial, sans-serif" font-size="8" fill="#FFF">+ Servir()</text>
+  
+  <!-- Inheritance arrows and subclasses -->
+  <line x1="130" y1="180" x2="130" y2="200" stroke="#4CAF50" stroke-width="3"/>
+  <polygon points="125,195 130,185 135,195" fill="#4CAF50"/>
+  
+  <!-- Espresso subclass -->
+  <rect x="40" y="220" width="80" height="60" fill="#654321" rx="8"/>
+  <text x="80" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#FFF" font-weight="bold">Espresso</text>
+  <text x="45" y="255" font-family="Arial, sans-serif" font-size="7" fill="#FFF">+ intensite: int</text>
+  <text x="45" y="267" font-family="Arial, sans-serif" font-size="7" fill="#FFF">+ Preparer()</text>
+  
+  <!-- Cappuccino subclass -->
+  <rect x="140" y="220" width="80" height="60" fill="#A0522D" rx="8"/>
+  <text x="180" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#FFF" font-weight="bold">Cappuccino</text>
+  <text x="145" y="255" font-family="Arial, sans-serif" font-size="7" fill="#FFF">+ mouseLait: bool</text>
+  <text x="145" y="267" font-family="Arial, sans-serif" font-size="7" fill="#FFF">+ Preparer()</text>
+  
+  <!-- Inheritance lines -->
+  <line x1="110" y1="200" x2="80" y2="220" stroke="#4CAF50" stroke-width="2"/>
+  <line x1="150" y1="200" x2="180" y2="220" stroke="#4CAF50" stroke-width="2"/>
+  
+  <!-- Coffee shop objects -->
+  <circle cx="270" cy="90" r="25" fill="#8B4513"/>
+  <ellipse cx="270" cy="85" rx="20" ry="5" fill="#DEB887"/>
+  <text x="270" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#333">monCafe</text>
+  <text x="270" y="135" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#666">(objet)</text>
+  
+  <circle cx="330" cy="160" r="25" fill="#654321"/>
+  <ellipse cx="330" cy="155" rx="20" ry="5" fill="#CD853F"/>
+  <text x="330" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#333">espresso1</text>
+  <text x="330" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#666">(objet)</text>
+  
+  <circle cx="270" cy="230" r="25" fill="#A0522D"/>
+  <ellipse cx="270" cy="225" rx="20" ry="5" fill="#DEB887"/>
+  <text x="270" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#333">cappuccino1</text>
+  <text x="270" y="275" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#666">(objet)</text>
+  
+  <!-- OOP principles labels -->
+  <text x="320" y="30" font-family="Arial, sans-serif" font-size="9" fill="#8B4513" font-weight="bold">CLASSE</text>
+  <text x="320" y="50" font-family="Arial, sans-serif" font-size="9" fill="#8B4513" font-weight="bold">HÉRITAGE</text>
+  <text x="320" y="70" font-family="Arial, sans-serif" font-size="9" fill="#8B4513" font-weight="bold">OBJETS</text>
+  
+  <!-- Title -->
+  <text x="200" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#8B4513" font-weight="bold">Programmation Orientée Objet</text>
+  <text x="200" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666">Apprendre la POO en .NET</text>
+</svg>
