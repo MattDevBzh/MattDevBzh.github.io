@@ -4,7 +4,7 @@ title: "Gestion des exceptions en C# : Gérer les pannes de votre café avec él
 date: 2025-01-30
 ---
 
-![Illustration gestion des exceptions](/_posts/exceptions-illustration.svg)
+![Illustration gestion des exceptions](/assets/images/exceptions-illustration.svg)
 
 Dans un café, tout ne se passe pas toujours comme prévu ! **Machine en panne, stock épuisé, commande incorrecte...** En programmation C#, les **exceptions** nous permettent de gérer ces situations inattendues avec élégance et professionnalisme. ☕
 
