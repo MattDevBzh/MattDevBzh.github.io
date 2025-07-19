@@ -4,7 +4,7 @@ title: "Collections et tableaux en C# : Organiser l'inventaire de votre café"
 date: 2025-01-29
 ---
 
-![Illustration collections et tableaux](/_posts/collections-illustration.svg)
+![Illustration collections et tableaux](/assets/images/collections-illustration.svg)
 
 Un café bien géré, c'est un café où tout est **organisé et facilement accessible** ! Comme les étagères de grains, les collections de tasses ou la liste des clients fidèles. En C#, les **collections et tableaux** nous permettent de stocker et organiser efficacement nos données. ☕
 

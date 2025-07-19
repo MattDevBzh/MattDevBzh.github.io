@@ -4,7 +4,7 @@ title: "Méthodes et fonctions en C# : Les recettes secrètes de votre café"
 date: 2025-01-31
 ---
 
-![Illustration méthodes et fonctions](/_posts/methodes-illustration.svg)
+![Illustration méthodes et fonctions](/assets/images/methodes-illustration.svg)
 
 Dans un café, chaque barista a ses **recettes secrètes** : comment obtenir la mousse parfaite, préparer l'espresso idéal, ou calculer rapidement les prix. En programmation C#, les **méthodes et fonctions** sont ces recettes réutilisables qui rendent notre code organisé et efficace ! ☕
 
