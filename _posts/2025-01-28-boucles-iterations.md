@@ -4,7 +4,7 @@ title: "Boucles et itérations en C# : Automatiser la préparation de vos cafés
 date: 2025-01-28
 ---
 
-![Illustration boucles et itérations](/_posts/boucles-illustration.svg)
+![Illustration boucles et itérations](/assets/images/boucles-illustration.svg)
 
 Dans un café animé, certaines tâches se répètent sans cesse : **préparer plusieurs espressos, servir une file de clients, nettoyer les tasses...** En programmation C#, les **boucles** nous permettent d'automatiser ces actions répétitives ! ☕
 
